@@ -1,0 +1,17 @@
+extends base.pug
+
+
+block content
+    form.login
+        h1 Login
+        hr(style='width: 300px;margin-left: 0px;')
+        a Email :
+        input(type='email', placeholder='Enter your email.', name='email', required='')
+        br
+        a Password :
+        input(type='password', placeholder='Enter your Password.', name='psw', required='')
+        br
+        input(type='submit' placeholder='Login') 
+        br
+        a you don't have an account ?
+        a(href='/sign-in') Sing-in

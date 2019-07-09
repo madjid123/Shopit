@@ -1,0 +1,24 @@
+extends base.pug
+
+block content
+  form.sign-in(method="post" action="/sign-in")
+    h2 Sign in
+    hr(style='width:300px; margin-left:0px;')
+    a First name :
+    input(type='text', placeholder='Enter your first name.', required='')
+    br
+    a Last name :
+    input(type='text', placeholder='Enter your last name.', required='')
+    br
+    a Email :
+    input(type='email', placeholder='Enter your email name.', required='')
+    br
+    a Password :
+    input(type='password', placeholder='Enter your password name.', required='')
+    br
+    input(type='checkbox', required='')
+    a I agree on
+    a(href='') This
+    a terms and conditions
+    br
+    input(type='submit' placeholder='Sign In') 

@@ -1,0 +1,17 @@
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel='stylesheet', href='/style.css')
+    if title
+        title #{title}
+    
+    else 
+        title ShopIt
+    body
+    form.nav-bar
+      a(href='/') Home
+      a(href='explore') Explore
+      a(href='about') About
+    block content

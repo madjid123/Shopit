@@ -1,0 +1,10 @@
+.nav-bar {
+    align-items: center;
+}
+.login{
+    width:50%;
+    border-radius: 40px;
+    border: 1px solid black;
+    margin: 30px;
+    padding: 10px;
+}

@@ -1,0 +1,21 @@
+{
+  "name": "shopit",
+  "version": "1.0.0",
+  "description": "A shoping site.",
+  "main": "main.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.2.7",
+    "mongoose": "^5.6.3",
+    "nodemon": "^1.19.1",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node main.js",
+    "dev": "nodemon main.js"
+  },
+  "author": "madjid benimam",
+  "license": "ISC"
+}
