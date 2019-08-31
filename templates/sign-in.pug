@@ -4,21 +4,25 @@ block content
   form.sign-in(method="post" action="/sign-in")
     h2 Sign in
     hr(style='width:300px; margin-left:0px;')
+    if msg
+      a #{msg} 
+      br
     a First name :
-    input(type='text', placeholder='Enter your first name.', required='')
+    input(type='text', placeholder='Enter your first name.', required='' name='firstname')
     br
     a Last name :
-    input(type='text', placeholder='Enter your last name.', required='')
+    input(type='text', placeholder='Enter your last name.', required='' name='lastname')
     br
     a Email :
-    input(type='email', placeholder='Enter your email name.', required='')
+    input(type='email', placeholder='Enter your email name.', required='' name='email')
     br
     a Password :
-    input(type='password', placeholder='Enter your password name.', required='')
+    input(type='password', placeholder='Enter your password name.', required='' name='password')
     br
     input(type='checkbox', required='')
     a I agree on
     a(href='') This
     a terms and conditions
     br
-    input(type='submit' placeholder='Sign In') 
+    input(type='submit' placeholder='Sign In' href='/')
+    
