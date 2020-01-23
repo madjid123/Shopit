@@ -2,19 +2,22 @@ extends base.pug
 
 
 block content
-    form.login(method="post" action="/log-in")
-        h1 Login
-        hr(style='width: 300px;margin-left: 0px;')
+    
+    div( style="padding : 15px 25%")
         if msg
-            a #{msg} 
+            a() #{msg}
             br
-        a Email :
-        input(type='email', placeholder='Enter your email.', name='email', required='' )
-        br
-        a Password :
-        input(type='password', placeholder='Enter your Password.', name='password', required='')
-        br
-        input(type='submit' placeholder='Login' ,href='/log-in') 
-        br
-        a you don't have an account ?
-        a(href='/sign-in') Sing-in
+        form(method="post" action ="/log-in" class = "m-2" content-align = "center" )
+            .form-group
+                label(for='exampleInputEmail1') Email address
+                input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp' name = "email")
+                small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
+            .form-group
+                label(for='exampleInputPassword1') Password
+                input#exampleInputPassword1.form-control(type='password' name="password")
+            .form-group.form-check
+                
+            button.btn.btn-primary(type='submit' href='/log-in') Submit
+            small(style="padding-left:15px;")
+                a( class= "m-2") you don't have an account ?
+                a(href='/sign-in' class= "m-2") Sing-in

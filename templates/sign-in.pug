@@ -1,28 +1,34 @@
 extends base.pug
 
 block content
-  form.sign-in(method="post" action="/sign-in")
+  form.sign-in.m-2(method="post" action="/sign-in" s style="padding : 15px 25%")
     h2 Sign in
     hr(style='width:300px; margin-left:0px;')
     if msg
       a #{msg} 
       br
-    a First name :
-    input(type='text', placeholder='Enter your first name.', required='' name='firstname')
+    .form-group  
+      a First name :
+      input(class ="form-control" type='text', placeholder='Enter your first name.', required='' name='firstname')
+      br
+    .form-group
+      a Last name :
+      input(class ="form-control" type='text', placeholder='Enter your last name.', required='' name='lastname')
+      br
+    .form-group
+      a Email :
+      input(class ="form-control" type='email', placeholder='Enter your email name.', required='' name='email')
+      br
+    .form-group
+      a Password :
+      input(class ="form-control" type='password', placeholder='Enter your password.', required='' name='password')
+      br
+    .form-group.form-check.m-2
+        input(class ="form-check-input" type='checkbox', required='')
+        label.form-check-label I agree on terms and conditions
+    
+    
+    
     br
-    a Last name :
-    input(type='text', placeholder='Enter your last name.', required='' name='lastname')
-    br
-    a Email :
-    input(type='email', placeholder='Enter your email name.', required='' name='email')
-    br
-    a Password :
-    input(type='password', placeholder='Enter your password name.', required='' name='password')
-    br
-    input(type='checkbox', required='')
-    a I agree on
-    a(href='') This
-    a terms and conditions
-    br
-    input(type='submit' placeholder='Sign In' href='/')
+    button.btn.btn-primary(onclick="window.location = '/home'") Sign In
     

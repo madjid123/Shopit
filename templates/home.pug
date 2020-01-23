@@ -1,9 +1,11 @@
 extends base.pug
 
 block content
+  if login
+    a( class= "nav-link badge m-2" ) LogedIn
   div
     a You want to See our products ?
-    button(onclick="explore.href") EXPLORE
+    button( onclick="window.location = '/explore'") EXPLORE
     br
     a You have an account ? :
     a(href='/log-in') Login 
