@@ -3,12 +3,16 @@ extends base.pug
 block content
   if login
     a( class= "nav-link badge m-2" ) LogedIn
-  div
-    a You want to See our products ?
-    button( onclick="window.location = '/explore'") EXPLORE
-    br
-    a You have an account ? :
-    a(href='/log-in') Login 
-    br
-    a You havn't an account ? you can create one :
-    a(href='/sign-in') Sign in
+  form( class="content" style="text-align: center; color:#ffffff")
+      h1.home-txt You want to See our products ?
+      br
+      a(href='/explore')
+          button.btn.btn-primary.bttn( onclick="window.location.href = '/explore'" ) EXPLORE
+      br
+      if !user
+        h3.home-txt You have an account ? :
+        a(href='/log-in' ) Login 
+        br
+        h3(class="home-txt") You don't have an account ? you can create one :
+        a(href='/sign-in' ) Sign in
+        

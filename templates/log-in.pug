@@ -10,11 +10,11 @@ block content
         form(method="post" action ="/log-in" class = "m-2" content-align = "center" )
             .form-group
                 label(for='exampleInputEmail1') Email address
-                input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp' name = "email")
+                input#exampleInputEmail1.form-control(type='email' aria-describedby='emailHelp' name = "email" required)
                 small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
             .form-group
                 label(for='exampleInputPassword1') Password
-                input#exampleInputPassword1.form-control(type='password' name="password")
+                input#exampleInputPassword1.form-control(type='password' name="password" required)
             .form-group.form-check
                 
             button.btn.btn-primary(type='submit' href='/log-in') Submit

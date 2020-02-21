@@ -1,28 +1,40 @@
 const Router = require('express').Router()
-
+var path = require('path');
 const session = require('express-session')
 const Database = require('../Database')
+const bcrypt = require('bcrypt');
 var Db = new Database("ShopIt.db")
-
-
 
 
 Router.use(session({
     secret: "123456",
     resave: true,
-    saveUninitialized: true
+    saveUninitialized: true,
+    cookie: {
+        expires: 600000
+    }
 }))
 
+Router.get('/logout', (req, res) => {
 
+    req.session.destroy()
+
+    console.log("session destroyed")
+    res.render('../templates/home', { title: " Home" });
+
+})
 
 Router.get('/', (req, res) => {
-    console.log(req.session)
+
     var user
-    if (req.session.user) user = req.session.user
+    if (req.session.user != undefined) user = req.session.user
+
+
     res.render('../templates/home', { title: " Home", user: user });
 
 }
 );
+
 Router.get('/about', (req, res) => {
     res.render('../templates/about', { title: " About" });
 }
@@ -40,7 +52,13 @@ Router.get('/sign-in', (req, res) => {
 Router.post('/sign-in', (req, res) => {
     let verifyData = "SELECT firstname ,lastname, email FROM User WHERE firstname = ? OR lastname = ? OR email = ? ;"
     Db.all(verifyData, [req.body.firstname, req.body.lastname, req.body.email], (err, row) => {
+
         if (err) console.error(err.message)
+
+        //hash the plain-text password.
+        var salt = bcrypt.genSaltSync(10);
+        var hash = bcrypt.hashSync(req.body.password, salt);
+        console.log(hash)
 
         if (Object.keys(row).length === 0) {
             with (req.body) {
@@ -48,7 +66,7 @@ Router.post('/sign-in', (req, res) => {
                     firstname,
                     lastname,
                     email,
-                    password
+                    hash
                 ]
             }
             let Inserted = Db.InsertIntoUser(data)
@@ -56,6 +74,7 @@ Router.post('/sign-in', (req, res) => {
 
                 SignInMssg = "Seccesfully Sign-in"
                 res.redirect('/log-in')
+                return
             }
 
         }
@@ -67,14 +86,13 @@ Router.post('/sign-in', (req, res) => {
 );
 
 var logInMssg = ""
-Router.get('/log-in', (req, res) => {
-    res.render('../templates/log-in', { title: " log-in", msg: logInMssg });
-})
 
 Router.post('/log-in', (req, res) => {
-    logInMssg = ""
+    let logInMssg = ""
+
     const { email, password } = req.body
-    let SqlInstruction = "SELECT email , password FROM User WHERE email = ? ";
+
+    let SqlInstruction = "SELECT email , password, firstname ,lastname FROM User WHERE email = ? ";
     Db.all(SqlInstruction, email, (err, row) => {
         if (err) throw err
 
@@ -84,20 +102,21 @@ Router.post('/log-in', (req, res) => {
 
         } else {
 
-            if (password === row[0].password) {
-                req.session.user = row[0].email
-                console.log(req.session.user)
+            if (bcrypt.compareSync(password, row[0].password)) {
+                req.session.user = row[0].firstname + ' ' + row[0].lastname
                 res.redirect('/')
             } else {
                 logInMssg = "Incorrect data"
+                res.redirect('/log-in')
 
             }
         }
 
     })
 });
+Router.get('/log-in', (req, res) => {
+    res.render('../templates/log-in', { title: " log-in", msg: logInMssg });
+})
 
-Router.get('/style.css', (req, res) => {
-    res.sendFile('../templates/style.css');
-});
+
 module.exports = Router

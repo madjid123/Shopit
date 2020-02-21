@@ -4,7 +4,9 @@ html(lang='en')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     link(rel="stylesheet", href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
-    link(rel='stylesheet', href='/style.css')
+    link(href="https://fonts.googleapis.com/css?family=Didact+Gothic|Roboto&display=swap" rel="stylesheet")
+    style
+       include ./style.css
     if title
         title ShopIt - #{title}
     else 
@@ -13,12 +15,16 @@ html(lang='en')
 
     body
     
-    form( class = "nav-tweak navbar navbar-light bg  " style="background-color: #004467; font-size: 20px; color : #ffffff;")
-      a(href='/' class= " nav-link badge m-2 " style="color: #eeeeee") Home
-      a(href='explore' class= "nav-link badge m-2" style="color: #eeeeee") Explore
-      if user
-          a( class= "nav-link badge m-2" ) yhtreute
-      a(href='about' class= "nav-link badge m-2" style="color: #eeeeee") About
+    div(style ="color:#ffffff;" class='overlay')
       
-
-    block content
+      form( class = "nav-bar1" )
+        a.nav-link( class= "ml-1") ShopIt
+        a.nav-link(href='/' class= "badge " ) Home
+        a.nav-link(href='explore' class= " badge") Explore
+            
+        a.nav-link(href='about' class= " badge" ) About
+        if user
+          a.nav-link( class= "nav-link badge m-2" href="" ) #{user}
+          a.nav-link( class= "nav-link badge m-2" href='/logout'  name="log_out") log-out
+      div(style="margin-top:10%")
+        block content
