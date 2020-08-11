@@ -1,0 +1,14 @@
+.about{
+ 
+	font-family: 'MuseoModerno', cursive;
+   text-align: left;
+   margin-left: 10%;
+    margin-top: 10%;
+
+}
+.about p {
+    margin-bottom: 0px;
+    font-size: 13px;
+    font-family: 'Didact Gothic',sans-serif;
+    width : 60%;
+}
