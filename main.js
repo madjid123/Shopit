@@ -28,6 +28,7 @@ app.use(require('./routes/signin'), (res, req, next) => {
 
 // adding static files aka css and media to express 
 app.use(express.static(__dirname + '/templates/css'))
+app.set('views', __dirname + "/views")
 
 
 // PORT value 

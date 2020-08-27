@@ -3,9 +3,9 @@ extends base.pug
 
 block content
     
-    div( style="padding : 15px 25%")
+    div( style="padding : 15px 25% ;margin-top:10%;")
         if msg
-            a() #{msg}
+            a(class="msg-text") #{msg}
             br
         form(method="post" action ="/log-in" class = "m-2" content-align = "center" )
             .form-group

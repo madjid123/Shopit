@@ -1,16 +1,15 @@
 extends base.pug
 
+
 block content
+  
   if login
     a( class= "nav-link badge m-2" ) LogedIn
   
   
   .home
     form( class="content" style=" color:#ffffff")
-        h1.home-txt You want to See our products ?
-        br
-        a(href='/explore')
-            button.btn.bttn( onclick="window.location.href = '/explore'" ) Categories
+        
         br
         if !user
           h3.home-txt You already have an account ? :
@@ -18,3 +17,8 @@ block content
           br
           h3(class="home-txt" ) You don't have an account ? you can create one :
           a.nav-link.link(href='/sign-in' style = " ") Sign in
+  script.
+        var ExButt = document.getElementById("exbutt");
+        ExButt.addEventListener("click", () => {
+          window.location= './explore.pug'
+        });

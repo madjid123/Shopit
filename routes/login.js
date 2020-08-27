@@ -32,8 +32,8 @@ router.post('/log-in', (req, res) => {
 
     let SqlInstruction = "SELECT email , password, firstname ,lastname FROM User WHERE email = ? ";
     db.get(SqlInstruction, email, (err, row) => {
-        if (Object.keys(row).length === 0) {
-
+        if (row == undefined) {
+            console.log({ row })
             res.render('../templates/views/log-in', {
                 msg: "Email address doesn't exist."
             })
