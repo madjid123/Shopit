@@ -4,7 +4,8 @@
   "description": "A shoping site.",
   "main": "main.js",
   "engines": {
-    "node": "12.x"
+    "node": "12.x",
+    "npm": "6.x"
   },
   "dependencies": {
     "bcrypt": "^3.0.6",
@@ -21,6 +22,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node main.js",
     "test": "node main.js",
     "dev": "nodemon main.js"
   },
