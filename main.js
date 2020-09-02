@@ -5,7 +5,7 @@ const app = express()
 
 // Body parser use JSON data(useless in this case)
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({ extended: false }))
 
 // set the View engine
 app.set('view engine', 'pug')
@@ -27,9 +27,9 @@ app.use(require('./routes/signin'), (res, req, next) => {
 app.use(express.static(__dirname + '/templates/css'))
 app.set('views', __dirname + '/views')
 
-
+server.listen()
 // PORT value
-var PORT = process.env.PORT | 5000
+var PORT = process.env.PORT || 5000
 
 app.listen(PORT)
 
