@@ -27,11 +27,14 @@ app.use(require('./routes/signin'), (res, req, next) => {
 app.use(express.static(__dirname + '/templates/css'))
 app.set('views', __dirname + '/views')
 
-server.listen()
+
 // PORT value
 var PORT = process.env.PORT || 5000
 
 app.listen(PORT)
 
 console.log(`Server is running on PORT : ${PORT}`)
-console.log('http://localhost:' + PORT + '/')
+if (!process.env.PORT)
+  console.log('http://localhost:' + PORT + '/')
+else
+  console.log(`PORT : ${PORT}`)
