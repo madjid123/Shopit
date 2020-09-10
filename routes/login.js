@@ -1,4 +1,4 @@
-const router = require('express').Router()
+const router = require('./Router')
 
 var path = require('path');
 const session = require('express-session')
@@ -9,42 +9,37 @@ const expressValidator = require('express-validator');
 var sqlite = require('sqlite3').verbose()
 
 const DbPath = require('../DbPath')
-router.use(session({
-  secret: '123456',
-  resave: true,
-  saveUninitialized: true,
-  cookie: {expires: 600000}
-}))
+
 console.log(DbPath)
 
 router.post('/log-in', (req, res) => {
-  const {email, password} = req.body
+  const { email, password } = req.body
 
   var db = new sqlite.Database(DbPath, (err) => {
-    console.log('here')
+
     if (err) console.error(err)
     else console.log(`Connected succesfully to the data base !`)
   })
 
   let SqlInstruction =
-      'SELECT email , password, firstname ,lastname FROM User WHERE email = ? ';
+    'SELECT email , password, firstname ,lastname FROM User WHERE email = ? ';
   db.get(SqlInstruction, email, (err, row) => {
     if (row == undefined) {
-      console.log({row})
+      console.log({ row })
       res.render(
-          '../templates/views/log-in', {msg: 'Email address doesn\'t exist.'})
+        '../templates/views/log-in', { msg: 'Email address doesn\'t exist.' })
       if (err) console.error(err.message);
     } else {
       if (bcrypt.compareSync(password, row.password)) {
         req.session.user = row.firstname + ' ' + row.lastname
         res.redirect('/')
       } else {
-        res.render('.../templates/views/log-in', {msg: 'Incorrect password'})
+        res.render('.../templates/views/log-in', { msg: 'Incorrect password' })
       }
     }
   })
 })
 router.get('/log-in', (req, res) => {
-  res.render('../templates/views/log-in', {title: ' log-in', msg: ''});
+  res.render('../templates/views/log-in', { title: ' log-in', msg: '' });
 })
 module.exports = router

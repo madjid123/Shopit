@@ -9,7 +9,7 @@ Router.use(session({
     resave: true,
     saveUninitialized: true,
     cookie: {
-        expires: 600000
+        expires: 6000000000000
     }
 }))
 
@@ -31,10 +31,7 @@ Router.get('/', (req, res) => {
 
 });
 
-Router.get('/about', (req, res) => {
-    res.render('../templates/views/about', { title: " About", user: req.session.user });
-}
-);
+
 Router.get('/explore', (req, res) => {
     res.render('../templates/views/explore', { title: " Explore", user: req.session.user, explore: 'exp' });
 }
