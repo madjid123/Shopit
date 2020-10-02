@@ -6,12 +6,17 @@ html(lang='en')
     link(rel="stylesheet", href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
     link(href="https://fonts.googleapis.com/css?family=Didact+Gothic|Roboto&display=swap" rel="stylesheet")
     link(href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&family=Poppins:wght@600&display=swap" rel="stylesheet")
+    link(rel="stylesheet", href="https://css.gg/shopping-bag.css")
+    
     style
        include ../css/style.css
        include ../css/explore.css
        include ../css/category.css
        include ../css/about.css
        include ../css/home.css
+       include ../css/product.css
+       include ../css/dropdown.css
+       include ../css/cart.css
 
     if title
         title ShopIt - #{title}
@@ -20,10 +25,11 @@ html(lang='en')
     
     
     body
+    
       
       div(style ="nav-bar1 " class=' ' id='container' )
         form(class = " nav-bar1")
-            a.nav-link(href='/' class=' nav-icon ') ShopIt
+            a.nav-link(href='/' class='  ') ShopIt
             div(class = "nav-text") 
               a.nav-link(href='/' class= "badge  " id="text") Home
               a.nav-link(href='explore' class= " badge" id="text") Categories
@@ -32,14 +38,23 @@ html(lang='en')
               button(class='btn  search-btn ') Search
             
             if user
-            .dropdown
-              button.dropbtn
-              |  #{user} 
-              i
-              .dropdown-content
-                a(href='#') Profile
-                a(href='/logout') Logout
-      
+              .dropdown
+                
+                button.dropbtn
+                |  #{user}
+                i
+                .dropdown-content
+                  a(href='#') Profile
+                  a(href='/logout') Logout
+            
+            div(id='mySideBar' class="sidebar")
+                a(id='closebtn'  class="closebtn" onclick='closeNav()' ) ×
+                span smatch this shit
+                a aflsjfkjskj
+            
+            div(id='main' class ='main')
+              button(id='openbtn1'  class='openbtn' onclick='openNav()' ) wret
+    <script type='text/javascript' src="js/cart.js"> </script>
     block content
     
     

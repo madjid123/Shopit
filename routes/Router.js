@@ -13,11 +13,14 @@ Router.use(session({
     }
 }))
 
+Router.get('/cart', (req, res) => {
+    res.render('cart')
+})
 Router.get('/logout', (req, res) => {
 
     req.session.destroy()
     console.log("session destroyed")
-    res.render('../templates/views/home', { title: " Home" });
+    res.render('home', { title: " Home" });
 
 })
 
@@ -27,14 +30,11 @@ Router.get('/', (req, res) => {
     if (req.session.user != undefined) user = req.session.user
 
 
-    res.render('../templates/views/home', { title: " Home", user: user });
+    res.render('home', { title: " Home", user: user });
 
 });
 
 
-Router.get('/explore', (req, res) => {
-    res.render('../templates/views/explore', { title: " Explore", user: req.session.user, explore: 'exp' });
-}
-);
+
 
 module.exports = Router

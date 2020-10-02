@@ -1,0 +1,40 @@
+.products {
+    display: flex;
+    flex-wrap: wrap;
+   
+    justify-content: center;
+  }
+  .product-card p{
+    font-size: 13px;
+    font-weight:400;
+  }
+.product-card {
+  min-height: 70%;
+  max-width: auto;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    background-color: rgb(255, 255, 255);
+    stroke: black;
+    stroke-width: 2px;
+    border-radius: 10%;
+    padding: 2%;
+    flex-grow: 1;
+    flex-basis: 16%;
+    margin: 1rem;
+    display: flex; /* so child elements can use flexbox stuff too! */
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+  }
+.product-image img {
+    border-radius: 10%;
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 1rem;
+  }
+.product-info {
+    margin-top: auto;
+  }
+@media (max-width: 920px) {
+    .product-card {
+      flex: 1 21%;
+    }
+  }

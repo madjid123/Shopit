@@ -27,19 +27,19 @@ router.post('/log-in', (req, res) => {
     if (row == undefined) {
       console.log({ row })
       res.render(
-        '../templates/views/log-in', { msg: 'Email address doesn\'t exist.' })
+        'log-in', { msg: 'Email address doesn\'t exist.' })
       if (err) console.error(err.message);
     } else {
       if (bcrypt.compareSync(password, row.password)) {
         req.session.user = row.firstname + ' ' + row.lastname
         res.redirect('/')
       } else {
-        res.render('.../templates/views/log-in', { msg: 'Incorrect password' })
+        res.render('.log-in', { msg: 'Incorrect password' })
       }
     }
   })
 })
 router.get('/log-in', (req, res) => {
-  res.render('../templates/views/log-in', { title: ' log-in', msg: '' });
+  res.render('log-in', { title: ' log-in', msg: '' });
 })
 module.exports = router
