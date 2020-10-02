@@ -1,25 +1,19 @@
-function openNav() {
 
-}
-function closeNav() {
 
-}
 var SideBarShown = false;
-var openbtn = document.getElementById("openbtn1");
-var closebtn = document.getElementById("closebtn")
+var openbtn = document.getElementById('openbtn1')
 openbtn.addEventListener('click', e => {
     e.preventDefault()
     SideBarShown = !SideBarShown;
-    if (SideBarShown === true)
+    if (SideBarShown === true) {
         document.getElementById("mySideBar").style.width = "30%";
-    else
+        document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
+    }
+
+    else {
         document.getElementById("mySideBar").style.width = "0";
+        document.body.style.backgroundColor = 'rgb(238, 238, 238)';
+    }
     //document.getElementById("main").style.marginLeft = "250px";
-
-})
-closebtn.addEventListener('click', e => {
-    e.preventDefault()
-
-    //document.getElementById("main").style.marginLeft = "0";
 
 })
