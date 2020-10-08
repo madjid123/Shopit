@@ -29,3 +29,7 @@
 home:link{
     outline-style: solid ;
 }
+.in-style{
+    outline-style: unset;
+    border-radius: 20px;
+}

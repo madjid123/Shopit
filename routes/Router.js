@@ -1,8 +1,19 @@
-const Router = require('express').Router()
-var path = require('path');
+var Router = require('express').Router()
+var path = require('path')
 const session = require('express-session')
-const bcrypt = require('bcrypt');
-const expressValidator = require('express-validator');
+const bcrypt = require('bcrypt')
+const expressValidator = require('express-validator')
+const DbPath = require('../DbPath')
+
+const sqlite = require('sqlite3').verbose()
+
+var db = new sqlite.Database(DbPath, (err) => {
+    if (err)
+        console.error(err)
+    else console.log(`Connected succesfully to the data base !`)
+})
+
+
 
 Router.use(session({
     secret: "123456",
@@ -37,4 +48,5 @@ Router.get('/', (req, res) => {
 
 
 
-module.exports = Router
+module.exports = { Router: Router, db: db };
+

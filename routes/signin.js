@@ -1,13 +1,14 @@
-const Router = require('express').Router()
+const r = require('./Router')
+const Router = r.Router
 
 var path = require('path');
 const bcrypt = require('bcrypt');
 const expressValidator = require('express-validator');
-const DbPath = require('../DbPath');
+
 
 var sqlite = require('sqlite3').verbose()
 
-
+var db = r.db
 
 Router.get('/sign-in', (req, res) => {
   res.render('sign-in', { title: ' Sign-in' });
@@ -15,11 +16,7 @@ Router.get('/sign-in', (req, res) => {
 Router.post('/sign-in', (req, res) => {
   console.log('post sign-in')
 
-  var db = new sqlite.Database(DbPath, (err) => {
-    if (err)
-      console.error(err)
-    else console.log(`Connected succesfully to the data base !`)
-  })
+
   let verifyData =
     'SELECT firstname ,lastname, email FROM User WHERE firstname = ? OR lastname = ? OR email = ? ;'
   db.all(

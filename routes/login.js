@@ -1,4 +1,4 @@
-const router = require('./Router')
+const router = require('./Router').Router
 
 var path = require('path');
 const session = require('express-session')

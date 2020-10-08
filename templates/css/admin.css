@@ -1,0 +1,24 @@
+.ad-login {
+    margin-top :10% ; 
+    margin-left : 40% ;
+    justify-content: space-between;
+   
+    width : 40%
+}
+.ad-login a {
+    margin-right : 3%;
+    margin: 10px 15px 10px 10px;
+}
+.ad-login a input {
+    margin-left: 10%;
+}
+.ad-login input {
+    font-family: "Roboto" ,serif;
+    width: 90%;
+    
+}
+.admin-board{
+    margin-left: 5%;
+    margin-top : 5%;
+    font-family: 'Poppins', sans-serif;
+}

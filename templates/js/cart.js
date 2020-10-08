@@ -1,5 +1,4 @@
 
-
 var SideBarShown = false;
 var openbtn = document.getElementById('openbtn1')
 openbtn.addEventListener('click', e => {

@@ -1,0 +1,20 @@
+extends base.pug
+
+block content 
+
+    div.admin-board( style ='')
+            
+        if admin
+
+            h2 Admin Board
+            a(class='btn-primary p-2' d='logout' href='/ad-logout' type='submit' placeholder="logout") logout
+            hr
+            div
+                h2 Add a new product
+
+            div 
+                h2 List of the products 
+                if rows
+                    ul
+                        each row in rows 
+                            li= row.NAME  

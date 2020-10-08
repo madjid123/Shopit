@@ -1,0 +1,20 @@
+extends base.pug
+
+block content 
+    
+	div(class='ad-login')
+		
+		form(method="post" action="/adminLogin")
+			h2(style='text-align : center;') Login
+			hr
+			if err 
+				a(class='text-danger ' style='margin-left : 20%;') #{err}
+				hr
+			a admin :
+			
+			input.in-style( class="form-control" type="text", name="name" placeholder="Enter the admin name")
+			hr
+			a password :
+			input.in-style(class="form-control" type="password", name="password" placeholder=" Enter the password")
+			hr
+			input(type='submit' value='Login'  class='search-btn')

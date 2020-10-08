@@ -3,10 +3,27 @@ extends base.pug
 block content 
     .products(style ="margin-top:10%; margin-bottom:10%;")
         .product-card
+            form(id = 'prct') 
+                .product-image
+                    img(src='images/books.jpg')
+                    .product-info( id ='prct')
+                        h4(id='name') Winter Jacket
+                        h6(id='price') $99.99
+                        p( id='description') Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.
+                        button(class='btn  search-btn ' id='AddToCart' type='submit') Add to Cart
+        .product-card
             .product-image
                 img(src='images/books.jpg')
-                .product-info
-                    h4 Winter Jacket
+                .product-info( id ='prct')
+                    h5 Winter Jacket
+                    h6 $99.99
+                    p Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.
+                    button(class='btn  search-btn ') Add to Cart
+        .product-card
+            .product-image
+                img(src='images/books.jpg')
+                .product-info( id ='prct')
+                    h5( id = 'title') Winter Jacket
                     h6 $99.99
                     p Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.
                     button(class='btn  search-btn ') Add to Cart
@@ -18,19 +35,6 @@ block content
                     h6 $99.99
                     p Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.
                     button(class='btn  search-btn ') Add to Cart
-        .product-card
-            .product-image
-                img(src='images/books.jpg')
-                .product-info
-                    h5 Winter Jacket
-                    h6 $99.99
-                    p Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.
-                    button(class='btn  search-btn ') Add to Cart
-        .product-card
-            .product-image
-                img(src='images/books.jpg')
-                .product-info
-                    h5 Winter Jacket
-                    h6 $99.99
-                    p Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.
-                    button(class='btn  search-btn ') Add to Cart
+    
+    <script type='text/javascript' src="js/CartItems.js"> </script>
+    
