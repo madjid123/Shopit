@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const app = express()
 const fs = require('fs')
-
+const db = require('./routes/Router').db
 // Body parser use JSON data(useless in this case)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -53,3 +53,4 @@ if (!process.env.PORT)
 else
   console.log(`PORT : ${PORT}`)
 
+db.close((err) => { if (err) console.log(err) })
