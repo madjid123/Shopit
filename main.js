@@ -45,12 +45,17 @@ app.set('views', path.join(__dirname, 'templates/views'))
 // PORT value
 var PORT = process.env.PORT || 5000
 
-app.listen(PORT)
+var server = app.listen(PORT, () => {
+  var host = server.address().address
+  var port = server.address().port
+  console.log("Example app listening at http://%s:%s", host, port)
+}
+)
 
 
-if (!process.env.PORT)
-  console.log('http://localhost:' + PORT + '/')
-else
-  console.log(`PORT : ${PORT}`)
 
-db.close((err) => { if (err) console.log(err) })
+
+process.on('SIGINT', () => {
+  db.close();
+  server.close();
+});

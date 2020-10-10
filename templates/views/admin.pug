@@ -14,6 +14,8 @@ block content
 
             div 
                 h2 List of the products 
+                if isEmpty
+                    a.danger-text There is no products in the Db.
                 if rows
                     ul
                         each row in rows 
