@@ -11,12 +11,31 @@ block content
             hr
             div
                 h2 Add a new product
+                hr
 
             div 
                 h2 List of the products 
                 if isEmpty
                     a.danger-text There is no products in the Db.
-                if rows
-                    ul
-                        each row in rows 
-                            li= row.NAME  
+                if rows 
+                    <table class="table table-striped custom">
+                        <thead class='thead-dark'>
+                            <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">ImageUrl</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            each row in rows 
+                                <th scope="row"> #{row.ID} </th>
+                                <td> #{row.NAME}</td>
+                                <td>#{row.PRICE}</td>
+                                <td>#{row.Category}</td>
+                                <td>#{row.ImgUrl}</td>
+                                </tr>
+                        </tbody>
+                    </table>
+                            
