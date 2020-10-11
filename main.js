@@ -25,16 +25,7 @@ fs.readdir('./routes', (err, data) => {
 
   })
 })
-// // reading the name of files in routes and including them to express.
-// // app.use(require('./routes/Router'), (res, req, next) => {
-// //   next();
-// // });
-// // app.use(require('./routes/login'), (res, req, next) => {
-// //   next();
-// // });
-// // app.use(require('./routes/signin'), (res, req, next) => {
-// //   next();
-// // });
+
 
 // adding static files aka css and media to express
 app.use(express.static(__dirname + '/templates/css'))
