@@ -1,8 +1,7 @@
-// const R = require('./Router')
 
-// const Router = R.Router
-// const db = R.db
 const { Router, db } = require('./Router')
+const multer = require('multer')
+const { ShopItPath } = require('../Paths')
 
 Router.get("/admin", (req, res) => {
     if (req.session.admin !== undefined) {
@@ -20,3 +19,16 @@ Router.get("/admin", (req, res) => {
         res.render('adminLogin')
 })
 
+
+const upload = multer({
+    dest: ShopItPath
+})
+Router.post('/add-product', upload.single("img"), (req, res) => {
+    const { name, price, category, descreption
+
+    } = req.body;
+
+    console.log(req.file)
+
+    res.render("admin")
+})
