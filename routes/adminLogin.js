@@ -13,7 +13,7 @@ Router.post('/adminLogin', (req, res) => {
     let [name, pass] = [req.body.name, req.body.password]
     // I will move them later to the database,
     if (name === 'madjid' && pass === '123456') {
-        console.log("madijd")
+
         req.session.admin = "madjid"
         res.redirect('admin')
     } else {

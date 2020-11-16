@@ -1,5 +1,5 @@
-const r = require('./Router')
-const Router = r.Router
+const { Router, db } = require('./Router')
+
 
 var path = require('path');
 const bcrypt = require('bcrypt');
@@ -8,7 +8,7 @@ const expressValidator = require('express-validator');
 
 var sqlite = require('sqlite3').verbose()
 
-var db = r.db
+
 
 Router.get('/sign-in', (req, res) => {
   res.render('sign-in', { title: ' Sign-in' });

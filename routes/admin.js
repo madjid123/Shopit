@@ -1,9 +1,10 @@
-const R = require('./Router')
+// const R = require('./Router')
 
-const router = R.Router
-const db = R.db
+// const Router = R.Router
+// const db = R.db
+const { Router, db } = require('./Router')
 
-router.get("/admin", (req, res) => {
+Router.get("/admin", (req, res) => {
     if (req.session.admin !== undefined) {
         db.all("SELECT * FROM Product", (err, rows) => {
             if (!req.session.admin) return;
@@ -15,9 +16,7 @@ router.get("/admin", (req, res) => {
 
             res.render("admin", { admin: req.session.admin, rows: rows, isEmpty: isEmpty })
         })
-    }
-
-    else
+    } else
         res.render('adminLogin')
 })
 

@@ -8,7 +8,7 @@
   right: 0;
   background-color: rgb(255, 255, 255);
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: 0.3s;
   /*padding-top: 60px;*/
   font-family: 'Poppins', sans-serif;
   
@@ -32,7 +32,7 @@
   font-size: 25px;
   color: #818181;
   display: block;
-  transition: 0.3s;
+  transition: 0.1s;
 }
 
 .sidebar a:hover {

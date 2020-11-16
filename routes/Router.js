@@ -3,7 +3,7 @@ var path = require('path')
 const session = require('express-session')
 const bcrypt = require('bcrypt')
 const expressValidator = require('express-validator')
-const DbPath = require('../DbPath')
+const { DbPath } = require('../Paths')
 
 const sqlite = require('sqlite3').verbose()
 

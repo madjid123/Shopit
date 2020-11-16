@@ -8,5 +8,5 @@ switch (OsType) {
   default:
     DbPath = __dirname + '/DataBase/ShopIt.db'
 }
-
-module.exports = DbPath
+var ShopItPath = __dirname;
+module.exports = { DbPath, ShopItPath }

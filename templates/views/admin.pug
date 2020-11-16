@@ -3,15 +3,34 @@ extends base.pug
 block content 
 
     div.admin-board( style ='')
-            
         if admin
-
             h2 Admin Board
             a(class='btn-primary p-2' d='logout' href='/ad-logout' type='submit' placeholder="logout") logout
             hr
             div
                 h2 Add a new product
-                hr
+                br
+                .add-product
+                    form(method="post" action='/add-product')
+                        a Name : 
+                        input.in-style(class="form-control" type="text", name="name")
+                        br
+                        a Price : 
+                        input.in-style(class="form-control" type="text" name='price')
+                        br
+                        a Category :
+                        input.in-style(class="form-control" type="text", name="category")
+                        br
+                        a Description :
+                        br
+                        textarea.in-style(class="form-control" name="description", cols="80", rows="5")
+                        br
+                        a Image : 
+                        input(type="file" name='img')
+                        br
+                        input.search-btn(type="submit", value="Add")
+                        br
+                        hr
 
             div 
                 h2 List of the products 

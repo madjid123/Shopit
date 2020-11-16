@@ -1,4 +1,4 @@
-const router = require('./Router').Router
+const { Router, db } = require('./Router')
 
 var path = require('path');
 const session = require('express-session')
@@ -8,18 +8,13 @@ const expressValidator = require('express-validator');
 
 var sqlite = require('sqlite3').verbose()
 
-const DbPath = require('../DbPath')
+//const { DbPath } = require('../Paths')
 
-console.log(DbPath)
 
-router.post('/log-in', (req, res) => {
+Router.post('/log-in', (req, res) => {
   const { email, password } = req.body
 
-  var db = new sqlite.Database(DbPath, (err) => {
 
-    if (err) console.error(err)
-    else console.log(`Connected succesfully to the data base !`)
-  })
 
   let SqlInstruction =
     'SELECT email , password, firstname ,lastname FROM User WHERE email = ? ';
@@ -39,7 +34,7 @@ router.post('/log-in', (req, res) => {
     }
   })
 })
-router.get('/log-in', (req, res) => {
+Router.get('/log-in', (req, res) => {
   res.render('log-in', { title: ' log-in', msg: '' });
 })
-module.exports = router
+module.exports = Router
