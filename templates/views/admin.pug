@@ -11,7 +11,7 @@ block content
                 h2 Add a new product
                 br
                 .add-product
-                    form(method="post" action='/add-product')
+                    form(method="post" action='/add-product' enctype="multipart/form-data")
                         a Name : 
                         input.in-style(class="form-control" type="text", name="name")
                         br
@@ -19,7 +19,17 @@ block content
                         input.in-style(class="form-control" type="text" name='price')
                         br
                         a Category :
-                        input.in-style(class="form-control" type="text", name="category")
+                        select.in-style(name="category" )
+                            option(value="Electronics") Electronics
+                            option(value="Computing") Computing
+                            option(value="Books") Books
+                            option(value="Shoes") Shoes
+                            option(value="Supermarket") Supermarket
+                            option(value="Fashion") Fashion
+                            option(value="Health&Beauty") Health & Beauty
+                            option(value="SportingGoods") Sporting Goods
+
+                        
                         br
                         a Description :
                         br

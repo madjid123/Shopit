@@ -29,7 +29,7 @@ Router.post('/log-in', (req, res) => {
         req.session.user = row.firstname + ' ' + row.lastname
         res.redirect('/')
       } else {
-        res.render('.log-in', { msg: 'Incorrect password' })
+        res.render('log-in', { msg: 'Incorrect password' })
       }
     }
   })
