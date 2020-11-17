@@ -1,5 +1,8 @@
 extends base.pug
 
+
+    
+
 block content 
 
     div.admin-board( style ='')
@@ -19,7 +22,7 @@ block content
                         input.in-style(class="form-control" type="text" name='price')
                         br
                         a Category :
-                        select.in-style(name="category" )
+                        select.in-style(name="category" class="form-control" )
                             option(value="Electronics") Electronics
                             option(value="Computing") Computing
                             option(value="Books") Books
@@ -60,14 +63,15 @@ block content
                         </thead>
                         <tbody>
                             each row in rows 
-                                <th scope="row" id> #{row.ID} </th>
+                                <th scope="row" > #{row.ID} </th>
                                 <td> #{row.NAME}</td>
                                 <td>#{row.PRICE}</td>
                                 <td>#{row.Category}</td>
                                 <td>#{row.ImgUrl}</td>
                                 td
-                                    form(action='/delete-product/:#{row.ID}' method="get")
-                                        input(type='submit' class='btn btn-danger' value='Delete' name="#{row.ID}" ) 
+                                    - var x = "/delete-product/:" ;
+                                    form(action= x + row.ID method="delete")
+                                        input(type='submit' class='btn btn-danger' value='Delete' name="#{row.NAME}" ) 
                                 tr
                         </tbody>
                     </table>

@@ -42,7 +42,7 @@ Router.post('/add-product', upload.single("img"), (req, res) => {
     res.redirect('admin')
 
 })
-Router.get('/delete-product/:id', (req, res) => {
+Router.delete('/delete-product/:id', (req, res) => {
     console.log(req.params.id)
 
 })
