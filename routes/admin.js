@@ -32,8 +32,8 @@ Router.post('/add-product', upload.single("img"), (req, res) => {
         if (err) console.log(err)
     })
     var InserQuery = 'INSERT INTO Product(NAME, PRICE , DESCRIPTION ,Category , ImgUrl) VALUES( ? , ? , ? , ?, ?) '
-
-    db.run(InserQuery, [name, price, description, category, NewPath], (err, row) => {
+    const ImgUrl = `/${category}/${req.file.filename + ext}`
+    db.run(InserQuery, [name, price, description, category, ImgUrl], (err, row) => {
         if (err) console.log(err)
         else msg = 'the product has been added succefully to the Data base.'
     })
