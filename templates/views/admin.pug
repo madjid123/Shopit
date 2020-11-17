@@ -14,15 +14,16 @@ block content
                 h2 Add a new product
                 br
                 .add-product
-                    form(method="post" action='/add-product' enctype="multipart/form-data")
+                    form(method="post" action='/add-product' enctype="multipart/form-data" required='true')
                         a Name : 
-                        input.in-style(class="form-control" type="text", name="name")
+                        input.in-style(class="form-control" type="text", name="name" required='true')
                         br
                         a Price : 
-                        input.in-style(class="form-control" type="text" name='price')
+                        input.in-style(class="form-control" type="text" required='true' name='price' )
                         br
                         a Category :
-                        select.in-style(name="category" class="form-control" )
+                        select.in-style(name="category" class="form-control" required)
+                            option(disabled selected value="") --
                             option(value="Electronics") Electronics
                             option(value="Computing") Computing
                             option(value="Books") Books
@@ -36,10 +37,10 @@ block content
                         br
                         a Description :
                         br
-                        textarea.in-style(class="form-control" name="description", cols="80", rows="5")
+                        textarea.in-style(class="form-control" name="description", cols="80", rows="5" required='true')
                         br
                         a Image : 
-                        input(type="file" name='img')
+                        input(type="file" name='img' required='true')
                         br
                         input.search-btn(type="submit", value="Add")
                         br
@@ -48,18 +49,20 @@ block content
             div 
                 h2 List of the products 
                 if isEmpty
-                    a.danger-text There is no products in the Db.
+                    h4.text-danger There is no products in the Db.
                 if rows 
                     <table class="table table-striped custom">
-                        <thead class='thead-dark'>
-                            <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Category</th>
-                            <th scope="col">ImageUrl</th>
-                            <th scope="col"></th>
-                            </tr>
+                        if !isEmpty
+                            <thead class='thead-dark'>
+                                <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">ImageUrl</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                </tr>
                         </thead>
                         <tbody>
                             each row in rows 
@@ -69,8 +72,8 @@ block content
                                 <td>#{row.Category}</td>
                                 <td>#{row.ImgUrl}</td>
                                 td
-                                    - var x = "/delete-product/:" ;
-                                    form(action= x + row.ID method="delete")
+                                    - var x = "/delete-product/" ;
+                                    form(action= x + row.ID method="POST")
                                         input(type='submit' class='btn btn-danger' value='Delete' name="#{row.NAME}" ) 
                                 tr
                         </tbody>
