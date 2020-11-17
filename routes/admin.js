@@ -24,6 +24,7 @@ var upload = multer({
     dest: path.join(ShopItPath, '/templates/images/products')
 })
 Router.post('/add-product', upload.single("img"), (req, res) => {
+    if (!req.session.admin) return;
     const { name, price, category, description } = req.body;
     const ext = path.extname(req.file.originalname);
     const NewPath = path.join(req.file.destination, category, req.file.filename) + ext
@@ -35,8 +36,14 @@ Router.post('/add-product', upload.single("img"), (req, res) => {
     const ImgUrl = `/${category}/${req.file.filename + ext}`
     db.run(InserQuery, [name, price, description, category, ImgUrl], (err, row) => {
         if (err) console.log(err)
-        else msg = 'the product has been added succefully to the Data base.'
-    })
 
-    res.render("admin", { msg: msg })
+    })
+    console.log(req.session.admin)
+    res.redirect('admin')
+
 })
+Router.get('/delete-product/:id', (req, res) => {
+    console.log(req.params.id)
+
+})
+

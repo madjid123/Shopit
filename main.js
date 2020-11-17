@@ -3,7 +3,7 @@ const bodyParser = require('body-parser')
 const path = require('path')
 const app = express()
 const fs = require('fs')
-const multer = require('multer')
+
 const db = require('./routes/Router').db
 // Body parser use JSON data(useless in this case)
 app.use(bodyParser.json());

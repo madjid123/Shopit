@@ -55,16 +55,20 @@ block content
                             <th scope="col">Price</th>
                             <th scope="col">Category</th>
                             <th scope="col">ImageUrl</th>
+                            <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
                             each row in rows 
-                                <th scope="row"> #{row.ID} </th>
+                                <th scope="row" id> #{row.ID} </th>
                                 <td> #{row.NAME}</td>
                                 <td>#{row.PRICE}</td>
                                 <td>#{row.Category}</td>
                                 <td>#{row.ImgUrl}</td>
-                                </tr>
+                                td
+                                    form(action='/delete-product/:#{row.ID}' method="get")
+                                        input(type='submit' class='btn btn-danger' value='Delete' name="#{row.ID}" ) 
+                                tr
                         </tbody>
                     </table>
                             
