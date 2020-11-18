@@ -56,7 +56,7 @@ Router.post('/delete-product/:id', (req, res) => {
     res.redirect('../admin')
 
 })
-// update product router
+// update product router.
 Router.post('/update-product/:id', upload.single("img"), (req, res) => {
     if (req.file === undefined) return;
     console.log(req.params.id)
