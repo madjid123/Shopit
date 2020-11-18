@@ -14,38 +14,45 @@ block content
                 h2 Add a new product
                 br
                 .add-product
-                    form(method="post" action='/add-product' enctype="multipart/form-data" required='true')
-                        a Name : 
-                        input.in-style(class="form-control" type="text", name="name" required='true')
-                        br
-                        a Price : 
-                        input.in-style(class="form-control" type="text" required='true' name='price' )
-                        br
-                        a Category :
-                        select.in-style(name="category" class="form-control" required)
-                            option(disabled selected value="") --
-                            option(value="Electronics") Electronics
-                            option(value="Computing") Computing
-                            option(value="Books") Books
-                            option(value="Shoes") Shoes
-                            option(value="Supermarket") Supermarket
-                            option(value="Fashion") Fashion
-                            option(value="Health&Beauty") Health & Beauty
-                            option(value="SportingGoods") Sporting Goods
+                    button.btn.btn-primary(class='add-btn' id='add' onclick="ShowModal('add-modal')") add product
+                    .modal(id='add-modal' )
+                        .modal-content
+                            span(class="close" id='close-add-modal') &times;
+                            h2 Add product                
+                            form(method="post" action='/add-product' enctype="multipart/form-data" required='true')
+                                a Name : 
+                                input.in-style(class="form-control" type="text", name="name" required='true')
+                                br
+                                a Price : 
+                                input.in-style(class="form-control" type="number" required='true' name='price' )
+                                br
+                                a Category :
+                                select.in-style(name="category" class="form-control" required)
+                                    option(disabled selected value="") --
+                                    option(value="Electronics") Electronics
+                                    option(value="Computing") Computing
+                                    option(value="Books") Books
+                                    option(value="Shoes") Shoes
+                                    option(value="Supermarket") Supermarket
+                                    option(value="Fashion") Fashion
+                                    option(value="Health&Beauty") Health & Beauty
+                                    option(value="SportingGoods") Sporting Goods
 
-                        
-                        br
-                        a Description :
-                        br
-                        textarea.in-style(class="form-control" name="description", cols="80", rows="5" required='true')
-                        br
-                        a Image : 
-                        input(type="file" name='img' required='true')
-                        br
-                        input.search-btn(type="submit", value="Add")
-                        br
-                        hr
+                                
+                                br
+                                a Description :
+                                br
+                                textarea.in-style(class="form-control" name="description", cols="80", rows="5" required='true')
+                                br
+                                a Image : 
+                                input(type="file" name='img' required='true')
+                                br
+                                hr
 
+                                input.search-btn(type="submit", value="Add")
+                                br
+                                hr
+            hr
             div 
                 h2 List of the products 
                 if isEmpty
@@ -88,7 +95,7 @@ block content
                                                 input.in-style(class="form-control" type="text", name="name" placeholder= row.NAME required='true')
                                                 br
                                                 a Price : 
-                                                input.in-style(class="form-control" type="text" placeholder= row.PRICE required='true' name='price' )
+                                                input.in-style(class="form-control" type="number" placeholder= row.PRICE required='true' name='price' )
                                                 br
                                                 a Category :
                                                 select.in-style(name="category" class="form-control" required )
