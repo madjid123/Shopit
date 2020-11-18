@@ -85,13 +85,13 @@ block content
                                             
                                             form(method="post" action='/update-product/' + row.ID enctype="multipart/form-data"  required='true')
                                                 a Name : 
-                                                input.in-style(class="form-control" type="text", name="name" value= row.NAME required='true')
+                                                input.in-style(class="form-control" type="text", name="name" placeholder= row.NAME required='true')
                                                 br
                                                 a Price : 
-                                                input.in-style(class="form-control" type="text" value= row.PRICE required='true' name='price' )
+                                                input.in-style(class="form-control" type="text" placeholder= row.PRICE required='true' name='price' )
                                                 br
                                                 a Category :
-                                                select.in-style(name="category" class="form-control" required value= row.Category)
+                                                select.in-style(name="category" class="form-control" required )
                                                     option(disabled selected value="") --
                                                     option(value="Electronics") Electronics
                                                     option(value="Computing") Computing
@@ -106,12 +106,12 @@ block content
                                                 br
                                                 a Description :
                                                 br
-                                                textarea.in-style(class="form-control" name="description", cols="80", rows="5" value= row.DESCRIPTION required='true')  #{row.DESCRIPTION}
+                                                textarea.in-style(class="form-control" name="description", cols="80", rows="5" placeholder= row.DESCRIPTION required='true')  #{row.DESCRIPTION}
                                                     
                                                 br
                                                 br
                                                 a Image : 
-                                                input(type="file" name='img' required='true' value= row.ImgUrl)
+                                                input(type="file" name='img' required='true' placeholder= row.ImgUrl)
                                                 br
                                                 
                                                 hr
