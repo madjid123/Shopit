@@ -76,21 +76,78 @@ block content
                                     form(action= x + row.ID method="POST")
                                         input(type='submit' class='btn btn-danger' value='Delete' name="#{row.NAME}" ) 
                                 td
-                                    button.btn.btn-primary(type='button' data-toggle='modal' data-target='#exampleModalCenter')  Update
-                                    #exampleModalCenter.modal.fade(tabindex='-1' role='dialog' aria-labelledby='exampleModalCenterTitle' aria-hidden='true')
-                                        .modal-dialog.modal-dialog-centered(role='document')
-                                            .modal-content
-                                                .modal-header
-                                                    h5#exampleModalLongTitle.modal-title Modal title
-                                                    button.close(type='button' data-dismiss='modal' aria-label='Close')
-                                                    span(aria-hidden='true') &times;
-                                                .modal-body
-                                                    | ...  
-                                                .modal-footer
-                                                    button.btn.btn-secondary(type='button' data-dismiss='modal') Close
-                                                    button.btn.btn-primary(type='button') Save changes
+                                    
+                                    button.btn.btn-primary(class='update-btn' id='update'+row.ID onclick="ShowModal('up-modal"+ row.ID + "')") update
+                                    .modal(id='up-modal'+ row.ID )
+                                        .modal-content
+                                            span(class="close" id='close-up-modal'+ row.ID) &times;
+                                            h2 Update product
+                                            
+                                            form(method="post" action='/update-product/' + row.ID enctype="multipart/form-data"  required='true')
+                                                a Name : 
+                                                input.in-style(class="form-control" type="text", name="name" value= row.NAME required='true')
+                                                br
+                                                a Price : 
+                                                input.in-style(class="form-control" type="text" value= row.PRICE required='true' name='price' )
+                                                br
+                                                a Category :
+                                                select.in-style(name="category" class="form-control" required value= row.Category)
+                                                    option(disabled selected value="") --
+                                                    option(value="Electronics") Electronics
+                                                    option(value="Computing") Computing
+                                                    option(value="Books") Books
+                                                    option(value="Shoes") Shoes
+                                                    option(value="Supermarket") Supermarket
+                                                    option(value="Fashion") Fashion
+                                                    option(value="Health&Beauty") Health & Beauty
+                                                    option(value="SportingGoods") Sporting Goods
+
+                                                
+                                                br
+                                                a Description :
+                                                br
+                                                textarea.in-style(class="form-control" name="description", cols="80", rows="5" value= row.DESCRIPTION required='true')  #{row.DESCRIPTION}
+                                                    
+                                                br
+                                                br
+                                                a Image : 
+                                                input(type="file" name='img' required='true' value= row.ImgUrl)
+                                                br
+                                                
+                                                hr
+                                                br
+                                                input.search-btn(type="submit", value="Update")
+                                            
+                                    
+        
+
                                 tr
                         </tbody>
                     </table>
     
-                          
+    script.
+                                        function ShowModal(id){
+                                            var modal = document.getElementById(id);
+
+                                            // Get the button that opens the modal
+                                            
+
+                                            // Get the <span> element that closes the modal
+                                            var span = document.getElementById("close-"+ id);
+
+                                            // When the user clicks the button, open the modal 
+                                            
+                                            modal.style.display = "block";
+                                            // When the user clicks on <span> (x), close the modal
+                                            span.onclick = function() {
+                                            modal.style.display = "none";
+                                            }
+
+                                            // When the user clicks anywhere outside of the modal, close it
+                                            window.onclick = function(event) {
+                                            if (event.target == modal) {
+                                                modal.style.display = "none";
+                                            }  
+                                            }  
+                                                
+                                        }                 
