@@ -40,7 +40,7 @@ Router.post('/sign-in', (req, res) => {
 
           } else {
             res.render(
-              'log-in', { msg: 'Successfully Sign-in' })
+              'log-in', { msg: 'Successfully Signed-in' })
           }
         })
       } else {

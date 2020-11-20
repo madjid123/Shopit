@@ -37,4 +37,4 @@ Router.post('/log-in', (req, res) => {
 Router.get('/log-in', (req, res) => {
   res.render('log-in', { title: ' log-in', msg: '' });
 })
-module.exports = Router
+module.exports = { Router, db }
