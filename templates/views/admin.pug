@@ -42,7 +42,7 @@ block content
                                 br
                                 a Description :
                                 br
-                                textarea.in-style(class="form-control" name="description", cols="80", rows="5" required='true')
+                                textarea.in-style(class="form-control" name="description", cols="80", rows="5" required='true' maxlength="256")
                                 br
                                 a Image : 
                                 input(type="file" name='img' required='true')
@@ -113,7 +113,7 @@ block content
                                                 br
                                                 a Description :
                                                 br
-                                                textarea.in-style(class="form-control" name="description", cols="80", rows="5" placeholder= row.DESCRIPTION required='true')  #{row.DESCRIPTION}
+                                                textarea.in-style(class="form-control" name="description", cols="80", rows="5" placeholder= row.DESCRIPTION required='true' maxlength="256")  #{row.DESCRIPTION}
                                                     
                                                 br
                                                 br
