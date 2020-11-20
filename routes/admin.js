@@ -4,6 +4,7 @@ const multer = require('multer')
 const { ShopItPath } = require('../Paths')
 const path = require('path')
 const fs = require('fs')
+
 Router.get("/admin", (req, res) => {
     if (req.session.admin !== undefined) {
         db.all("SELECT * FROM Product", (err, rows) => {

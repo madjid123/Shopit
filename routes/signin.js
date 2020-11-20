@@ -3,10 +3,8 @@ const { Router, db } = require('./Router')
 
 var path = require('path');
 const bcrypt = require('bcrypt');
-const expressValidator = require('express-validator');
 
 
-var sqlite = require('sqlite3').verbose()
 
 
 
@@ -14,7 +12,7 @@ Router.get('/sign-in', (req, res) => {
   res.render('sign-in', { title: ' Sign-in' });
 })
 Router.post('/sign-in', (req, res) => {
-  console.log('post sign-in')
+
 
 
   let verifyData =
