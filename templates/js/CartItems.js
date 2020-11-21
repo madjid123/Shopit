@@ -1,10 +1,8 @@
 class Cart {
     cart = []
-    Item(name, price, count, description) {
-        this.name = name
-        this.price = price
-        this.description = description
-        this.count = count
+    addItem(name, price, count, description) {
+
+        this.cart.push({ name, price, count, description })
     }
     saveCart() {
         sessionStorage.setItem('shoppingCart', JSON.stringify(cart));
@@ -21,7 +19,9 @@ if (sessionStorage.getItem("shoppingCart") != null) {
     Cart.loadCart();
 }
 
-var addToCart = document.getElementById("prct")
+function addToCart(row) {
+
+}
 console.log(addToCart)
 addToCart.addEventListener('submit', e => {
     console.log(addToCart)

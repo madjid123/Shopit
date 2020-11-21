@@ -35,6 +35,6 @@
   }
 @media (max-width: 200px) {
     .product-card {
-      flex: 4 10%;
+      flex: 1 21%;
     }
   }
