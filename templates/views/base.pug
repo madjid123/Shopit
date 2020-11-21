@@ -43,13 +43,19 @@ html(lang='en')
                 |  #{user}
                 i
                 .dropdown-content
-                  a(href='#') Profile
-                  a(href='/logout') Logout
+                  a.nav-link(href='#') Profile
+                  a.nav-link(href='/logout') Logout
             div(id='main' class ='main')
             button(id='openbtn1'  class='btn search-btn' onclick='' ) Cart
               <i class="fas fa-shopping-bag"></i>
         div(id='mySideBar' class="sidebar")
               div
-                h2 Shopping Cart 
-        <script type='text/javascript' src="js/cart.js"> </script>
-    block content
+                h2 Shopping Cart
+                hr 
+                .cart-items
+
+                .cart-totals
+                  a $0.00
+        <script type='text/javascript' src="../js/cart.js"> </script>
+    .content-div(style ="margin-top:70px; margin-bottom:10%; align-items :center; text-align:center;")
+      block content

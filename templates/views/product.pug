@@ -1,24 +1,26 @@
 extends base.pug
 
 block content 
-    .product-div(style ="margin-top:10%; margin-bottom:10%;")
-        if isEmpty
-            h2.text-danger there is no item in this category. 
-        else
-            
-            each row in rows
-                .products
-                    .product-card
-                        form(id = 'prct') 
-                            .product-image
-                                img(src='../images/products' + row.ImgUrl)
-                                .product-info( id ='prct')
-                                    h4(id='name') #{row.NAME}
-                                    h6(id='price') #{row.PRICE}$
-                                    p( id='description') #{row.DESCRIPTION}
-                                    button(class='btn  search-btn ' id='AddToCart' type='submit' onclick="AddToCart("+ row +")" ) Add to Cart
+    
+    if isEmpty
+        h2.text-danger there is no item in this category. 
+    else
+        
+        each row in rows
+            .products
+                .product-card
+                    form(id = 'prct') 
+                        a #{rows}
+                        .product-image
+                            img(src='../images/products' + row.ImgUrl)
+                            .product-info( id ='prct')
+                                h4(id='name') #{row.NAME}
+                                h6(id='price') #{row.PRICE}$
+                                p( id='description') #{row.DESCRIPTION}
+                                -var r = JSON.stringify(row)
+                                button(class='btn  search-btn ' id='AddToCar'  onclick="AddToCart("+r + ")" ) Add to Cart
     
 
             
-    <script type='text/javascript' src="js/CartItems.js"> </script>
+    <script type='text/javascript' src="../js/CartItems.js"> </script>
     
