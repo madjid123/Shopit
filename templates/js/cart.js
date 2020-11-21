@@ -63,6 +63,7 @@ function ShowCart() {
             <a>${Items.cart[i].name}</a>
             <a>${Items.cart[i].price}</a>    
         </div> `
+
     }
 
 }
