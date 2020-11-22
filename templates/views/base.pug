@@ -46,16 +46,17 @@ html(lang='en')
                   a.nav-link(href='#') Profile
                   a.nav-link(href='/logout') Logout
             div(id='main' class ='main')
-            button(id='openbtn1'  class='btn search-btn' onclick='' ) Cart
+            button(id='openbtn1'  class='btn search-btn' ) Cart
               <i class="fas fa-shopping-bag"></i>
         div(id='mySideBar' class="sidebar")
               div
                 h2 Shopping Cart
                 hr 
-                .cart-items
+                .cart-items(id ='cart-id')
 
                 .cart-totals
-                  a $0.00
+                  a total : $0.00
+                
         <script type='text/javascript' src="../js/cart.js"> </script>
     .content-div(style ="margin-top:70px; margin-bottom:10%; align-items :center; text-align:center;")
       block content
