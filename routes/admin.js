@@ -45,6 +45,7 @@ Router.post('/add-product', upload.single("img"), (req, res) => {
 })
 // delete product router
 Router.post('/delete-product/:id', (req, res) => {
+    console.log("reaches here ")
     db.get("SELECT ImgUrl FROM Product WHERE id = ? ", [req.params.id], (err, row) => {
         fs.unlink(path.join(ShopItPath, '/templates/images/products/', row.ImgUrl), (err) => {
             console.log(err)
@@ -54,7 +55,7 @@ Router.post('/delete-product/:id', (req, res) => {
         if (err) console.log(err)
 
     })
-    res.redirect('../admin')
+    res.redirect('/admin')
 
 })
 // update product router.

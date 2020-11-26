@@ -79,8 +79,8 @@ block content
                                 <td>#{row.Category}</td>
                                 <td>#{row.ImgUrl}</td>
                                 td
-                                    - var x = "/delete-product/" ;
-                                    form(action= x + row.ID method="POST")
+                                    
+                                    form(action="/delete-product/" + row.ID method="POST")
                                         input(type='submit' class='btn btn-danger' value='Delete' name="#{row.NAME}" ) 
                                 td
                                     

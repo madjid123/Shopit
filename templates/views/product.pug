@@ -13,11 +13,11 @@ block content
                         .product-image
                             img(src='../images/products' + row.ImgUrl)
                             .product-info( id ='prct')
-                                h4(id='name') #{row.NAME}
-                                h6(id='price') #{row.PRICE}$
+                                a(id='name') #{row.NAME}
+                                a(id='price') #{row.PRICE}$
                                 p( id='description') #{row.DESCRIPTION}
                                 -var r = JSON.stringify(row)
-                                button(class='btn  search-btn ' id='AddToCar'  onclick="AddToCart("+r + ")" ) Add to Cart
+                                button(class='btn  search-btn ' id='AddToCar' data-id= r) Add to Cart
     
 
             

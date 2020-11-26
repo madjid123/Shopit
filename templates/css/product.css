@@ -11,7 +11,7 @@
 .product-card {
   min-width: 256px;
   min-height: 70%;
-  max-width: 50%;
+  max-width: 30%;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: rgb(255, 255, 255);
     stroke: black;
