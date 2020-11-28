@@ -1,5 +1,6 @@
 class Cart {
     cart = []
+    total = 0.0
 
     addElements() {
         this.loadCart()
@@ -9,18 +10,20 @@ class Cart {
                 this.addCartElement(this.cart[i])
             }
         }
+        this.UpdateTotal()
     }
     addItem(id, name, price, count, imgUrl) {
 
         this.cart.push({ id, name, price, count, imgUrl })
         this.addCartElement(this.cart[this.cart.length - 1])
         this.saveCart()
-
+        this.UpdateTotal()
     }
     updateCount(id, count) {
         this.cart.map((n) => { if (id === n.id) n.count = count; })
         localStorage.removeItem('shoppingCart')
         this.saveCart()
+        this.UpdateTotal()
 
     }
     saveCart() {
@@ -43,13 +46,38 @@ class Cart {
             <a>${elem.name}</a>
             <a>${elem.price}$</a>
             <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1">
+            <input class="cart-quantity-input" type="number" value="1" >
             <button class="btn btn-danger rm-but" type="button" id='rm'>REMOVE</button>
             </div>
         </div> `
 
         cartRow.innerHTML = cartContent
         cartItems.appendChild(cartRow)
+
+        //this is a hack and should not be considered as a good practice.  
+        var removeElementsBut = document.getElementsByClassName("rm-but")
+        var removeElementBut = removeElementsBut[removeElementsBut.length - 1]
+        removeElementBut.addEventListener('click', (e) => {
+            e.preventDefault()
+            var item = e.target.parentElement.parentElement
+            var items = item.parentElement
+            let id = item.dataset.id
+
+            this.RemoveCartElement(id)
+            items.removeChild(item)
+
+            this.UpdateTotal()
+
+        })
+
+        var CountInputs = document.getElementsByClassName("cart-quantity-input")
+        var CountInput = CountInputs[CountInputs.length - 1]
+        CountInput.addEventListener('input', (e) => {
+            var count = parseInt(e.target.value)
+
+            console.log(count)
+            this.updateCount(elem.id, count)
+        })
 
 
     }
@@ -62,9 +90,8 @@ class Cart {
                 return;
             }
         })
-        console.log(isIn)
         if (isIn === false)
-            this.addItem(row.ID, row.NAME, row.PRICE, 0, row.ImgUrl)
+            this.addItem(row.ID, row.NAME, row.PRICE, 1, row.ImgUrl)
 
 
 
@@ -74,9 +101,21 @@ class Cart {
 
             return el.id != id;
         })
-        console.log(temp)
+
         this.cart = temp
+        this.UpdateTotal()
         this.saveCart()
+    }
+    UpdateTotal() {
+        this.total = 0.00;
+        if (this.cart.length === 0) {
+
+        } else
+            this.cart.map((el) => {
+                this.total += el.price * el.count
+            })
+        var total = document.getElementById('total')
+        total.innerHTML = `Total : ${this.total}$`
     }
 
 };
@@ -116,22 +155,12 @@ function ready() {
     var addToCartBut = document.getElementById("AddToCar")
     if (addToCartBut !== null)
         addToCartBut.addEventListener('click', addCart)
-    var removeElementsBut = document.getElementsByClassName("rm-but")
-    console.log(removeElementsBut)
-    for (let i = 0; i < removeElementsBut.length; i++) {
-        removeElementsBut[i].addEventListener('click', (e) => {
-            e.preventDefault()
-            var removeElementBut = e.target;
-            var item = removeElementBut.parentElement.parentElement
-            var items = item.parentElement
-            let id = item.dataset.id
 
-            Items.RemoveCartElement(id)
-            console.log(Items.cart)
-            items.removeChild(item)
+    //var removeElementsBut = document.getElementsByClassName("rm-but")
 
-        })
-    }
+    // for (let i = 0; i < removeElementsBut.length; i++) {
+
+    // }
 
 
 }
