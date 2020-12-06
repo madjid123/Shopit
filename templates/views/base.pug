@@ -41,7 +41,7 @@ html(lang='en')
             
           a.nav-link(href='/about' class= "badge " id="text") About
           input.nav-link(class='search ' placeholder='search' type='text') 
-          button.nav-link(class='btn  search-btn')
+          button.nav-link(class='btn  search-btn' style="padding :13px;")
             i(class="fa fa-search")
           if user
             .dropdown
@@ -50,7 +50,7 @@ html(lang='en')
               
               .dropdown-content
                 a(href='#') Profile
-                a(href='/logout') Logout
+                a.som(href='/logout') Logout
           button(id='openbtn1'  class='btn search-btn' )
             <i class="fa fa-shopping-bag"></i>
               
