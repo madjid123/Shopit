@@ -1,3 +1,11 @@
+function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "nav-bar1") {
+        x.className += "  responsive";
+    } else {
+        x.className = "nav-bar1";
+    }
+}
 class Cart {
     cart = []
     total = 0.0
@@ -134,12 +142,25 @@ function ready() {
     Items.addElements()
     var SideBarShown = false;
     var openbtn = document.getElementById('openbtn1')
+    var closebtn = document.getElementById('close-btn')
+    closebtn.addEventListener('click', e => {
+        e.preventDefault()
+        document.getElementById("mySideBar").style.width = "0";
+        document.body.style.backgroundColor = 'rgb(238, 238, 238)';
+        SideBarShown = false;
+    })
 
     openbtn.addEventListener('click', e => {
         e.preventDefault()
         SideBarShown = !SideBarShown;
         if (SideBarShown === true) {
-            document.getElementById("mySideBar").style.width = "40%";
+            var width = "40%";
+
+            if (window.innerWidth < 768) {
+                width = "100%";
+                document.getElementById("mySideBar").style.height = window.innerHeight
+            }
+            document.getElementById("mySideBar").style.width = width;
 
             document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
 

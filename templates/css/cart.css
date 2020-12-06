@@ -2,7 +2,7 @@
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   top: 10%;
   
   right: 0;
@@ -71,6 +71,9 @@
 }
 .closebtn{
   cursor: pointer;
+  
+  right: 0;
+  top: 0;
 }
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
@@ -79,4 +82,13 @@
 }
 .cart-quantity-input{
   width:40px;
+}
+.content-div{
+  width: 100%;
+  display: block ; 
+  margin-top:120px; 
+  margin-bottom:10%;  
+  
+  justify-content : center;
+ 
 }

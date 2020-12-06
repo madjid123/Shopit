@@ -3,10 +3,12 @@ html(lang='en')
     <script type='text/javascript' src="../js/cart.js"> </script>
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    
     meta(http-equiv='X-UA-Compatible', content='ie=edge')
     link(rel="stylesheet", href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
     link(href="https://fonts.googleapis.com/css?family=Didact+Gothic|Roboto&display=swap" rel="stylesheet")
     link(href="https://fonts.googleapis.com/css2?family=PT+Sans:ital@1&family=Poppins:wght@600&display=swap" rel="stylesheet")
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
     style
       include ../css/style.css
       include ../css/explore.css
@@ -27,30 +29,35 @@ html(lang='en')
     body
     
       
-      div(style ="nav-bar1 " class=' ' id='container' )
-        form(class = " nav-bar1")
-            a.nav-link(href='/' class='  ') ShopIt
-            div(class = "nav-text") 
-              a.nav-link(href='/' class= "badge  " id="text") Home
-              a.nav-link(href='/explore' class= " badge" id="text") Categories
-              a.nav-link(href='/about' class= "badge " id="text") About
-              input(class='search ml-5' placeholder='search' type='text') 
-              button(class='btn  search-btn ') Search
+      div( id='container' )
+        
+        div( class= "nav-bar1" id='myTopnav' )
+          a.nav-link(href="javascript:void(0);" class="icon" onclick="myFunction()")
+            i(class="fa fa-bars")
+          a.nav-link(href='/' class='badge') ShopIt
+          
+          a.nav-link(href='/' class= "badge  " id="text") Home
+          a.nav-link(href='/explore' class= " badge" id="text") Categories
             
-            if user
-              .dropdown
-                
-                button.dropbtn
-                |  #{user}
-                i
-                .dropdown-content
-                  a.nav-link(href='#') Profile
-                  a.nav-link(href='/logout') Logout
-            div(id='main' class ='main')
-            button(id='openbtn1'  class='btn search-btn' ) Cart
-              <i class="fas fa-shopping-bag"></i>
+          a.nav-link(href='/about' class= "badge " id="text") About
+          input.nav-link(class='search ' placeholder='search' type='text') 
+          button.nav-link(class='btn  search-btn')
+            i(class="fa fa-search")
+          if user
+            .dropdown
+              button(class='btn search-btn')
+                i(class="fa fa-user" style='color: white;')
+              
+              .dropdown-content
+                a(href='#') Profile
+                a(href='/logout') Logout
+          button(id='openbtn1'  class='btn search-btn' )
+            <i class="fa fa-shopping-bag"></i>
+              
         div(id='mySideBar' class="sidebar")
+              a#close-btn.closebtn x
               div
+                
                 h2 Shopping Cart
                 hr 
                 .cart-items(id ='cart-id')
@@ -60,5 +67,5 @@ html(lang='en')
                   hr
                 
         
-    .content-div(style =";margin-top:70px; margin-bottom:10%; display : flex ; justify-content : center;")
-      block content
+      .content-div
+        block content
