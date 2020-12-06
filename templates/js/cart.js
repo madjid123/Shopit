@@ -158,7 +158,7 @@ function ready() {
 
             if (window.innerWidth < 768) {
                 width = "100%";
-                document.getElementById("mySideBar").style.height = window.innerHeight
+                document.getElementById("mySideBar").style.height = "100%"
             }
             document.getElementById("mySideBar").style.width = width;
 

@@ -32,29 +32,31 @@ html(lang='en')
       div( id='container' )
         
         div( class= "nav-bar1" id='myTopnav' )
+          
           a.nav-link(href="javascript:void(0);" class="icon" onclick="myFunction()")
             i(class="fa fa-bars")
-          a.nav-link(href='/' class='badge') ShopIt
           
-          a.nav-link(href='/' class= "badge  " id="text") Home
-          a.nav-link(href='/explore' class= " badge" id="text") Categories
+          a.nav-link.hide(href='/' class='badge') ShopIt
+          
+          a.nav-link.hide(href='/' class= "badge  " id="text") Home
+          a.nav-link.hide(href='/explore' class= " badge" id="text") Categories
             
-          a.nav-link(href='/about' class= "badge " id="text") About
-          input.nav-link(class='search ' placeholder='search' type='text') 
-          button.nav-link(class='btn  search-btn' style="padding :13px;")
+          a.nav-link.hide(href='/about' class= "badge " id="text") About
+          input.nav-link.show(class='search ' placeholder='search' type='text') 
+          button.nav-link.show(class='badge btn  search-btn' style="padding :13px;")
             i(class="fa fa-search")
           if user
-            .dropdown
+            .dropdown.show
               button(class='btn search-btn')
                 i(class="fa fa-user" style='color: white;')
               
               .dropdown-content
                 a(href='#') Profile
                 a.som(href='/logout') Logout
-          button(id='openbtn1'  class='btn search-btn' )
+          button.show(id='openbtn1'  class='btn search-btn' )
             <i class="fa fa-shopping-bag"></i>
               
-        div(id='mySideBar' class="sidebar")
+        div.show(id='mySideBar' class="sidebar")
               a#close-btn.closebtn x
               div
                 

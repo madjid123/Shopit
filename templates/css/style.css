@@ -143,6 +143,7 @@ body
       font-size: 15px;
       height :35px;
       width: 350px;
+      align-items: center;
       text-align : center;
       border-radius: 20px ;
       font-family: 'PT Sans', sans-serif;
@@ -165,6 +166,7 @@ body
 .search-btn{
     border: 1px solid seashell;
     border-radius: 20px;
+    
     color: snow;
     padding : 0px 30px;
     background-color :rgb(2, 206, 145);
@@ -175,11 +177,7 @@ body
       text-align: center;
       
   }
-
   
-  
- 
- 
   .link{
       color: blue;
   }
@@ -187,6 +185,7 @@ body
     text-shadow: 1px 1px 1px 1px black;
 
  }
+ 
  .msg-text{
     color: rgb(255, 71, 71);
      font-size : 17px;
@@ -196,9 +195,11 @@ body
  .icon{
      display: none;
  }
+ .nav-bar1 a.icon {
+    display: none;}
  @media screen and (max-width: 768px) {
-    .nav-bar1 a:not(:first-child) {display: none;}
-    .nav-bar1 .nav-link {display: none;}
+   
+    .nav-bar1 .hide {display: none;}
     .nav-bar1 a.icon {
       float: right;
       display: block;
@@ -206,22 +207,24 @@ body
     
   }
   @media screen and (max-width: 768px) {
-      .body{
-          width: 100%;
-      }
+      
+    .nav-bar1.responsive .show {display: none;}
     .nav-bar1.responsive {
-       
+        
+    margin : 0 auto;
     position: fixed;
     display: grid;
+    column-gap :0px ;
     grid-template-columns: auto;
     height: 100%;
     width: 100%;
-    
+    padding : 15px;
 }
 
 .search{
+    margin: 0 auto;
     height :30px;
-  width: 50%;
+  width: 100%;
 }
     .nav-bar1.responsive .icon {
       position: absolute;
@@ -238,4 +241,6 @@ body
 
       
     }
-  }
+}
+
+  
