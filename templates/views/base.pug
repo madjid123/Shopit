@@ -19,6 +19,7 @@ html(lang='en')
       include ../css/dropdown.css
       include ../css/cart.css
       include ../css/admin.css
+      
 
     if title
         title ShopIt - #{title}
@@ -42,20 +43,22 @@ html(lang='en')
           a.nav-link.hide(href='/explore' class= " badge" id="text") Categories
             
           a.nav-link.hide(href='/about' class= "badge " id="text") About
-          input.nav-link.show(class='search ' placeholder='search' type='text') 
-          button.nav-link.show(class='badge btn  search-btn' style="padding :13px;")
+          input.nav-link.show(class='search ' placeholder='search' type='search') 
+          button.nav-link.show(class='badge btn  search-btn' style="")
+          
             i(class="fa fa-search")
+          
+          button.show(id='openbtn1'  class='btn search-btn' )
+            <i class="fa fa-shopping-bag"></i>
           if user
             .dropdown.show
-              button(class='btn search-btn')
-                i(class="fa fa-user" style='color: white;')
+              div(class='user')
+                button.btn.search-btn
+                  i(class="fa fa-user")
               
               .dropdown-content
                 a(href='#') Profile
-                a.som(href='/logout') Logout
-          button.show(id='openbtn1'  class='btn search-btn' )
-            <i class="fa fa-shopping-bag"></i>
-              
+                a.som(href='/logout') Logout       
         div.show(id='mySideBar' class="sidebar")
               a#close-btn.closebtn x
               div
@@ -67,7 +70,7 @@ html(lang='en')
                 .cart-totals
                   a#total total : $0.00
                   hr
-                
+             
         
       .content-div
         block content
