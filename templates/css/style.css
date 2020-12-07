@@ -146,7 +146,8 @@ body
       align-items: center;
       text-align : center;
       border-radius: 20px ;
-      font-family: 'PT Sans', sans-serif;
+      font-family: monospace;
+      font-weight: 100;
       border : 1px solid #00000000;
       
       
@@ -235,7 +236,7 @@ body
     width: 40%;
     
 }
-.dropdown-content {
+.dropdown-content-responsive {
     margin-top: 50%;
 }
 }
