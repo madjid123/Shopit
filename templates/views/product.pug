@@ -8,15 +8,26 @@ block content
         .products     
             each row in rows
                 .product-card
-                    form(id = 'prct')
-                        .product-image
-                            img(src='../images/products' + row.ImgUrl)
-                            .product-info( id ='prct')
-                                a(id='name') #{row.NAME}
-                                a(id='price') #{row.PRICE}$
-                                p( id='description') #{row.DESCRIPTION}
-                                -var r = JSON.stringify(row)
-                                button(class='btn  search-btn ' id='AddToCar' data-id= r) Add to Cart
+                    .product-image
+                        img(src='../images/products' + row.ImgUrl)
+                        .product-info( id ='prct')
+                            a(id='name') #{row.NAME}
+                            br
+                            a(id='price') #{row.PRICE}$
+                            br
+                            p( id='description') #{row.DESCRIPTION}
+                            -var r = JSON.stringify(row)
+                            button(class='btn  search-btn ' id='AddToCar' data-id= r) Add to Cart
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
     
 
             

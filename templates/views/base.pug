@@ -31,8 +31,8 @@ html(lang='en')
     
       
       div( id='container' )
-          
-          div( class= "nav-bar1" id='myTopnav' )
+         
+          div( class= "nav-bar1 " id='myTopnav' )
               a.nav-link(href="javascript:void(0);" class="icon" onclick="myFunction()")
                 i(class="fa fa-bars")
               
@@ -42,7 +42,7 @@ html(lang='en')
               a.nav-link.hide(href='/explore' class= " badge" id="text") Categories
                 
               a.nav-link.hide(href='/about' class= "badge " id="text") About
-              form(id='myForm' method="post" action='/search')
+              form.nav-form.badge(id='myForm' method="post" action='/search')
                 input.nav-link.show(class='search' name='key' placeholder='search' type='search') 
                 button.nav-link.show(class='badge btn  search-btn' style="submit" onclick="document.getElementById('myForm').submit();")
                   i(class="fa fa-search")
@@ -70,6 +70,6 @@ html(lang='en')
                     a#total total : $0.00
                     hr
              
-        
+      
       .content-div
         block content

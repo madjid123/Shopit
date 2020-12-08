@@ -1,41 +1,56 @@
 .products {
-    display: flex;
-    flex-wrap: wrap;
-   
+    display: grid;
     justify-content: center;
+    grid-template-columns: repeat(3, 30%);
+    
   }
   .product-card p{
     font-size: 13px;
     font-weight:400;
   }
 .product-card {
-  min-width: 256px;
-  min-height: 70%;
-  max-width: 30%;
+  min-width: 300px;
+  padding: 2rem 1rem 2rem 1rem;
+  max-width: 20%;
    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     background-color: rgb(255, 255, 255);
     stroke: black;
     stroke-width: 2px;
     border-radius: 8%;
-    padding: 2%;
-    flex-grow: 1;
+  
+    flex-shrink: 1;
+    
     flex-basis: 16%;
     margin: 1rem;
-    display: flex; /* so child elements can use flexbox stuff too! */
     text-align: center;
     font-family: 'Poppins', sans-serif;
+    
   }
 .product-image img {
-    border-radius: 8%;
-    max-width: 50%;
-    max-height: 100%;
-    margin-bottom: 1rem;
+    border-radius: 10%;
+    max-width: 90%;
+    max-height: 90%;
+     
+   
+    
   }
 .product-info {
     margin-top: auto;
   }
-@media (max-width: 200px) {
+@media (max-width: 90%) {
     .product-card {
-      flex: 1 21%;
+      flex: 12 50%;
+    }
+    
+  }
+@media screen and  (max-width: 768px){
+    .products{
+      
+      grid-template-columns: fit-content(100%);
+    }
+    .product-card {
+
+      max-width: 100%;
+      width : 100%;
     }
   }

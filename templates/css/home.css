@@ -26,10 +26,28 @@
     color : rgb(2, 206, 145); 
     font-size:20px;
 }
-home:link{
+.home:link{
     outline-style: solid ;
 }
 .in-style{
     outline-style: unset;
     border-radius: 20px;
+}
+.nav-form{
+    margin-right : 5%;
+  width : 80%;
+
+ 
+}
+.nav-form .nav-link{
+    
+    display: inline;
+    
+    
+}
+.nav-form .search-btn{
+    margin-left: -50px;
+  
+
+ 
 }
