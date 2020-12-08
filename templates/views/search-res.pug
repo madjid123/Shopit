@@ -1,0 +1,19 @@
+extends base.pug
+
+block content
+    - var x = (rows === undefined) ? true : false ;  
+    if x 
+        h2.text-danger No Item matching this name. 
+    else
+        .products
+        each row in rows
+                .product-card
+                    form(id = 'prct')
+                        .product-image
+                            img(src='../images/products' + row.ImgUrl)
+                            .product-info( id ='prct')
+                                a(id='name') #{row.NAME}
+                                a(id='price') #{row.PRICE}$
+                                p( id='description') #{row.DESCRIPTION}
+                                -var r = JSON.stringify(row)
+                                button(class='btn  search-btn ' id='AddToCar' data-id= r) Add to Cart

@@ -5,9 +5,8 @@ block content
     if isEmpty
         h2.text-danger there is no item in this category. 
     else
-        
-        each row in rows
-            .products
+        .products     
+            each row in rows
                 .product-card
                     form(id = 'prct')
                         .product-image
