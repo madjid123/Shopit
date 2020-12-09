@@ -59,7 +59,8 @@
 
  .user{
    color:  rgb(255, 255, 255);
-   
+   margin-right : 5%;
+   margin-left : 10%;
    
  }
  @media screen and (max-width: 768px) {
