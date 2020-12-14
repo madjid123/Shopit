@@ -31,7 +31,6 @@ html(lang='en')
     
       
       div( id='container' )
-         
           div( class= "nav-bar1 " id='myTopnav' )
               a.nav-link(href="javascript:void(0);" class="icon" onclick="myFunction()")
                 i(class="fa fa-bars")
@@ -39,9 +38,9 @@ html(lang='en')
               a.nav-link.hide(href='/' class='badge') ShopIt
               
               a.nav-link.hide(href='/' class= "badge  " id="text") Home
-              a.nav-link.hide(href='/explore' class= " badge" id="text") Categories
-                
+              a.nav-link.hide(href='/explore' class= " badge" id="text") Categories 
               a.nav-link.hide(href='/about' class= "badge " id="text") About
+              
               form.nav-form.badge(id='myForm' method="post" action='/search')
                 input.nav-link.show(class='search' name='key' placeholder='search' type='search') 
                 button.nav-link.show(class='badge btn  search-btn' style="submit" onclick="document.getElementById('myForm').submit();")
@@ -60,15 +59,14 @@ html(lang='en')
                     a.som(href='/logout') Logout       
           div.show(id='mySideBar' class="sidebar")
                 a#close-btn.closebtn x
-                div
-                  
-                  h2 Shopping Cart
-                  hr 
-                  .cart-items(id ='cart-id')
+                h2 Shopping Cart
+                hr 
+                .cart-items(id ='cart-id')
+                hr
+                .cart-totals
+                  button.btn.btn-danger.clear clear
+                  a#total total : $0.00
                   hr
-                  .cart-totals
-                    a#total total : $0.00
-                    hr
              
       
       .content-div

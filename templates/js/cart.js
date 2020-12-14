@@ -23,6 +23,7 @@ class Cart {
     addItem(id, name, price, count, imgUrl) {
 
         this.cart.push({ id, name, price, count, imgUrl })
+        console.log(this.cart)
         this.addCartElement(this.cart[this.cart.length - 1])
         this.saveCart()
         this.UpdateTotal()
@@ -47,28 +48,33 @@ class Cart {
         var cartItems = document.getElementById('cart-id')
         var cartRow = document.createElement('div')
         cartRow.className = "cart-item"
-        cartRow.id = 'cid'
-
-        var cartContent = `<div data-id=${elem.id}>
+        cartRow.id = elem.id
+        cartRow.dataset.id = elem.id
+        var cartContent = `
+            <hr>
             <img src="../images/products${elem.imgUrl}"  width='50px' height='50px'> 
-            <a>${elem.name}</a>
-            <a>${elem.price}$</a>
+            <div class="content-item">
+            <a class="cart-text">${elem.name}</a>
+            <a class="cart-text">${elem.price}$</a>
             <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1" >
-            <button class="btn btn-danger rm-but" type="button" id='rm'>REMOVE</button>
+                <input class=" form-control in-style cart-quantity-input" type="number" value="1" >
+                <button class="btn btn-danger rm-but " type="button" id='rm${elem.id}'> <i class="fa fa-trash"></i></button>
             </div>
-        </div> `
+            </div>
+            
+         `
 
         cartRow.innerHTML = cartContent
         cartItems.appendChild(cartRow)
 
         //this is a hack and should not be considered as a good practice.  
-        var removeElementsBut = document.getElementsByClassName("rm-but")
-        var removeElementBut = removeElementsBut[removeElementsBut.length - 1]
+        var removeElementBut = document.getElementById(`rm${elem.id}`)
+
         removeElementBut.addEventListener('click', (e) => {
             e.preventDefault()
-            var item = e.target.parentElement.parentElement
+            var item = document.getElementById(`rm${elem.id}`).parentElement.parentElement.parentElement
             var items = item.parentElement
+            console.log(item)
             let id = item.dataset.id
 
             this.RemoveCartElement(id)
@@ -173,9 +179,27 @@ function ready() {
         //document.getElementById("main").style.marginLeft = "250px";
 
     })
-    var addToCartBut = document.getElementById("AddToCar")
-    if (addToCartBut !== null)
-        addToCartBut.addEventListener('click', addCart)
+    document.addEventListener('click', e => {
+        if (e.target.matches(".product-button"))
+            addCart(e)
+        if (e.target.matches(".clear")) {
+
+            removeAllElements()
+            Items.cart = []
+            Items.saveCart()
+        }
+
+    })
+
+
+
+
+    /* var addToCartButts = document.getElementsByClassName("product-button")
+    for (let i = 0; i < addToCartButts.length; ++i) {
+        if (addToCartButts[i] !== null)
+            addToCartButts[i].addEventListener('click', addCart)
+
+    } */
 
     //var removeElementsBut = document.getElementsByClassName("rm-but")
 
@@ -183,6 +207,21 @@ function ready() {
 
     // }
 
+
+}
+
+function removeAllElements() {
+    var removeElementsBut = document.getElementsByClassName(`cart-item`)
+    var cartitems = document.getElementById('cart-id')
+    var i = removeElementsBut.length - 1
+    while (cartitems.childElementCount !== 0) {
+
+        console.log(removeElementsBut[i])
+        cartitems.removeChild(removeElementsBut[i])
+        i--
+
+
+    }
 
 }
 

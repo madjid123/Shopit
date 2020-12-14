@@ -242,6 +242,10 @@ body
 .dropdown-content-responsive {
     margin-top: 50%;
 }
+.rm-but{
+   
+    font-size: 13px;
+}
 }
 
 .search-btn{
