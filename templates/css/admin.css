@@ -1,19 +1,25 @@
 .ad-login {
-    margin-top :10% ; 
-    margin-left : 40% ;
-    justify-content: space-between;
-    width : 40%
+    margin: auto;
+    
+    width : 40%;
+}
+.ad-login .search-btn{
+  align-items: center;
+  text-align: center;
+ 
 }
 .ad-login a {
+  text-align: left;
     margin-right : 3%;
     margin: 10px 15px 10px 10px;
 }
 .ad-login a input {
     margin-left: 10%;
 }
-.ad-login input {
+.ad-login .in-style {
+  
     font-family: "Roboto" ,serif;
-    width: 90%;
+    width: 100%;
     
 }
 .admin-board{

@@ -39,12 +39,12 @@ var PORT = process.env.PORT || 5000
 
 var server = app.listen(PORT, () => {
 
-
+  console.log(` listening at http://localhost:${PORT}`)
 }
 )
 
 console.log(server.address())
-console.log(` listening at http://localhost:${PORT}`)
+
 
 
 
