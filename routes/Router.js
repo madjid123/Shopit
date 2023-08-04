@@ -20,8 +20,10 @@ Router.use(session({
     resave: true,
     saveUninitialized: true,
     cookie: {
-        expires: 6000000000000
+        expires: 6000000000000,
+    httpOnly:false
     }
+
 }))
 
 Router.get('/cart', (req, res) => {
@@ -39,9 +41,9 @@ Router.get('/', (req, res) => {
 
     var user
     if (req.session.user != undefined) user = req.session.user
-
-
-    res.render('home', { title: " Home", user: user });
+    console.log(req.session)
+    let msg = ""
+        res.render('home', { title: " Home", user: user ,msg:msg});
 
 });
 
