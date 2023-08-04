@@ -152,7 +152,7 @@ function ready() {
     closebtn.addEventListener('click', e => {
         e.preventDefault()
         document.getElementById("mySideBar").style.width = "0";
-        document.body.style.backgroundColor = 'rgb(238, 238, 238)';
+        document.body.style.backgroundColor = '#36383f';
         SideBarShown = false;
     })
 
@@ -168,13 +168,13 @@ function ready() {
             }
             document.getElementById("mySideBar").style.width = width;
 
-            document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
+            // document.body.style.backgroundColor = "rgba(0,0,0,0.2)";
 
         }
 
         else {
             document.getElementById("mySideBar").style.width = "0";
-            document.body.style.backgroundColor = 'rgb(238, 238, 238)';
+            // document.body.style.backgroundColor = 'rgb(0, 0, 0,0.3)';
         }
         //document.getElementById("main").style.marginLeft = "250px";
 
