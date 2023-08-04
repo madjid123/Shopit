@@ -17,7 +17,7 @@ Router.post('/log-in', (req, res) => {
 
 
   let SqlInstruction =
-    'SELECT email , password, firstname ,lastname FROM User WHERE email = ? ';
+    'SELECT id ,email , password, firstname ,lastname FROM User WHERE email = ? ';
   db.get(SqlInstruction, email, (err, row) => {
     if (row == undefined) {
       console.log({ row })
@@ -27,6 +27,7 @@ Router.post('/log-in', (req, res) => {
     } else {
       if (bcrypt.compareSync(password, row.password)) {
         req.session.user = row.firstname + ' ' + row.lastname
+        req.session.user_id= row.id
         res.redirect('/')
       } else {
         res.render('log-in', { msg: 'Incorrect password' })
