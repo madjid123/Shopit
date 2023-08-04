@@ -8,7 +8,7 @@ block content
   
   
   .home
-    form( class="content" style=" color:#ffffff")
+    form( class="" style=" color:#ffffff")
         
         br
         if !user
@@ -17,5 +17,6 @@ block content
           br
           h3(class="home-txt" ) You don't have an account ? you can create one :
           a.nav-link.link(href='/sign-in' style = " ") Sign in
-  script.
-        
+        else 
+          script.
+            window.location="/explore" 
