@@ -19,6 +19,8 @@ html(lang='en')
       include ../css/dropdown.css
       include ../css/cart.css
       include ../css/admin.css
+      include ../css/login.css
+      include ../css/base.css
       
 
     if title
@@ -35,11 +37,10 @@ html(lang='en')
               a.nav-link(href="javascript:void(0);" class="icon" onclick="myFunction()")
                 i(class="fa fa-bars")
               
-              a.nav-link.hide(href='/' class='badge') ShopIt
+              a.nav-link.hide.logo(href='/' class='badge') ShopIt
               
               a.nav-link.hide(href='/' class= "badge  " id="text") Home
               a.nav-link.hide(href='/explore' class= " badge" id="text") Categories 
-              a.nav-link.hide(href='/about' class= "badge " id="text") About
               
               form.nav-form.badge(id='myForm' method="post" action='/search')
                 input.nav-link.show(class='search' name='key' placeholder='search' type='search') 
@@ -49,24 +50,25 @@ html(lang='en')
               button.show(id='openbtn1'  class='btn search-btn' )
                 <i class="fa fa-shopping-bag"></i>
               if user
-                .dropdown.show
+                .dropdown.show.user-dropdown
                   div(class='user')
-                    button.btn.search-btn
-                      i(class="fa fa-user")
+                    button.btn.user-btn
+                      i(class="fa fa-user" style="color:#ddd;")
                   
                   .dropdown-content
                     a(href='#') Profile
+                    a(href="/changepassword") Change Password
                     a.som(href='/logout') Logout       
           div.show(id='mySideBar' class="sidebar")
                 a#close-btn.closebtn x
-                h2 Shopping Cart
+                h2.h-text Shopping Cart
                 hr 
                 .cart-items(id ='cart-id')
                 button.btn.btn-danger.clear clear
                 hr
                 .cart-totals
                   
-                  a#total total : $0.00
+                  a#total.h-text total : $0.00
                   hr
              
       
