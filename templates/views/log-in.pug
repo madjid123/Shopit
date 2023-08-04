@@ -3,21 +3,28 @@ extends base.pug
 
 block content
     
-    div( style="padding : 15px 25% ;margin-top:10%;")
-        if msg
-            a(class="msg-text") #{msg}
-            br
-        form(method="post" action ="/log-in" class = " m-2" content-align = "center" )
-            .form-group
-                label(for='exampleInputEmail1') Email address
-                input#exampleInputEmail1.form-control.in-style(type='email' aria-describedby='emailHelp' name = "email" required)
-                small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
-            .form-group
-                label(for='exampleInputPassword1') Password
-                input#exampleInputPassword1.form-control.in-style(type='password' name="password" required)
-            .form-group.form-check
-                
-            button.btn.btn-primary.search-btn(type='submit' href='/log-in') Submit
-            small(style="padding-left:15px;")
-                a( class= "m-2") you don't have an account ?
-                a(href='/sign-in' class= "m-2") Sing-in
+    div.dexy-content
+        div.dexy-form
+            h2.h-text Login
+            hr
+            if msg
+                a(class="msg-text") #{msg}
+                br
+                hr
+            form(method="post" action ="/log-in" class = "" content-align = "" id="dexy-form")
+                .form-group.dexy-group
+                    label(for='exampleInputEmail1') Email address
+                    input#dexy-input.form-control.in-style(type='email' aria-describedby='emailHelp' name = "email" required)
+                    br
+                    small.form-text.text-muted We&apos;ll never share your email with anyone else.
+                .form-group.dexy-group
+                    label(for='exampleInputPassword1') Password
+                    input.form-control.in-style(type='password' name="password" required)
+                .form-group.form-check
+                    
+                button.btn.btn-primary.search-btn(type='submit' href='/log-in') Submit
+                br
+                hr
+                small(style="padding-left:15px;")
+                    a( class= "m-2") you don't have an account ?
+                    a(href='/sign-in' class= "login-link") Sign In
