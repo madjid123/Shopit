@@ -1,0 +1,67 @@
+#dexy-form{
+    color : rgb(230, 230, 230) !important;
+}
+
+
+#dexy-input {
+    box-shadow: 0 0 1pt 1pt rgb(2 206 145) !important;
+    outline-style: unset;
+    color: #e8e8e8 !important;
+    background: rgb(40, 40, 40) !important;
+    padding: 0px 1%;
+    font-size: 15px;
+    height: 40px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+
+    font-weight: 100;
+    border: 1px solid #00000000;
+
+}
+.dexy-input {
+    box-shadow: 0 0 1pt 1pt rgb(2 206 145) !important;
+    outline-style: unset;
+    color: #e8e8e8 !important;
+    background: rgb(40, 40, 40) !important;
+    padding: 0px 1%;
+    font-size: 15px;
+    height: 40px;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+
+    font-weight: 100;
+    border: 1px solid #00000000;
+
+}
+.h-text{
+    color : #fefefe;
+}
+.dexy-form{
+    border-radius: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.399);
+    padding : 1.5rem;
+    width:60%;
+}
+.dexy-group{
+    text-align: left;
+}
+.login-link{
+    color :rgb(190, 190, 190)
+    
+}
+a.login-link:hover{
+    text-decoration:none !important;
+    color : rgb(43, 197, 107);
+    
+}
+.dexy-content{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    padding-inline: 20%;
+}
