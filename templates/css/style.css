@@ -19,8 +19,8 @@ body
     font-family: 'Roboto',sans-serif;
     margin : 0px ;
     margin-bottom: 0px;
-    background-color: rgb(238, 238, 238);
-    
+    background-color: #36383f;
+    height:100vh; 
     display: flex;
     
 }
@@ -58,12 +58,12 @@ body
 
 
 .nav-bar1 {
-    background-color: rgb(255, 255, 255);
+    background-color: #202225;
     /* overflow: hidden; */
     display: flex;
     /*box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.164);*/
-    font-size: 30px;
-    color : #141414;
+    font-size: 10px;
+    color : #17161c;
     margin-bottom: 10%;
     position: fixed;
     width: 100%;
@@ -71,8 +71,7 @@ body
     align-items: center;
     padding : 0 ;
     display: flex;
-    margin-right: 50%;
-    
+    padding : 0.7rem; 
     /*justify-content: center;*/
     
     
@@ -91,7 +90,7 @@ body
     
 }
 .nav-bar1 a:hover {
-    color: rgb(0, 255, 149);
+    color: rgb(255, 255, 255);
     
     border-radius: 0px;
     
@@ -121,9 +120,9 @@ body
   }
   .nav-link{
       text-decoration: none;
-      font-size: 20px;
+      font-size: 16px;
       padding : 0px 4px;
-      color:#020202;
+      color:#00a981;
       font-family: 'Poppins', sans-serif;
       
   }
@@ -140,12 +139,12 @@ body
   .search{
       box-shadow: 0 0 1pt 1pt rgb(2, 206, 145);
       outline-style: unset;
-      color:#111111;
-
+      color:#e8e8e8;
+      background : rgb(40, 40, 40);
       padding : 0px 1%;
       font-size: 15px;
-      height :40px;
-      width: 100%;
+      height :35px;
+      width: 80%;
       align-items: center;
       text-align : center;
       border-radius: 20px ;
@@ -169,17 +168,17 @@ body
 
 .search-btn{
     border: 1px solid seashell;
-    border-radius: 20px;
+    border-radius: 1.5rem;
    
   
     color: snow;
-    padding : 0px 40px;
-    background-color :rgb(2, 206, 145);
-      margin-left: 10px ;
-      height :43px;
-      font-size: 15px;
-      margin-top: 0px;
-      text-align: center;
+    padding : 0px 1.5rem;
+    background-color :rgb(57, 158, 128);
+    margin-left: 10px ;
+    height :40px;
+    font-size: 15px;
+    margin-top: 0px;
+    text-align: center;
       
   }
   
@@ -192,7 +191,7 @@ body
  }
  
  .msg-text{
-    color: rgb(255, 71, 71);
+    color: rgb(233, 93, 93) !important;
      font-size : 17px;
      
     
@@ -218,7 +217,7 @@ body
 
   @media screen and (max-width: 768px) {
       
-    .nav-bar1.responsive .show {display: none;}
+    .nav-bar1.responsive  {display: none;}
     .nav-bar1.responsive .hide {
         padding : 40px 50px;
         display: flex;
@@ -252,8 +251,7 @@ body
     padding : 0px 20px;
 }
 .nav-form{
-    width : 80%;
-    margin-right :10%;
+    width : 50%;
 }
     .nav-bar1.responsive .icon {
       position: absolute;
@@ -273,4 +271,10 @@ body
     
 }
 
-  
+hr{
+    color: #fff;
+    background:rgb(125, 125, 125);
+}
+.logo{
+    font-size:25px;
+}
