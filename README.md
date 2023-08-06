@@ -5,3 +5,6 @@ This is an e-commerce web application built using Express in backend, Pug templa
 - insert, edit, delete,product.
 - add product item into cart.
 - Authentication for users and admins.
+
+## How to run it
+- todo
